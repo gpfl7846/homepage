@@ -1,0 +1,212 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- first div -->
+<!-- team_page css/js -->
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/teampagecss.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename = 'js/player_hover.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename = 'js/sorting_team_player.js')}}"></script>
+
+<div class="container">
+	<!-- 팀이름 -->
+	<div class="col-md-4 col-md-push-3 second_div col-xs-12">
+		<br>
+		{% if team_instance %}
+		<p class="text_center"><p class="text_center font_team">{{team_instance.name}}</p> <br><p class="team_naming"> {{team_instance.college}}</p></p>	
+		{% endif %}
+
+	</div>
+
+	<!--팀로고-->
+
+	<div class="col-xs-12  col-md-3 col-md-pull-4 team_page_style">
+
+		<!--team logo -->
+		<img class="team_logo" src="{{url_for('get_teamlogo_image', filename=team_instance.team_img )}}" alt="..." class="img-rounded">
+		<!-- team name -->
+
+	</div> <!-- 팀로고 끝 -->
+ <!-- 몇승 몇패
+--><div class="col-md-5 leguage  result_position">
+{% if team_instance.team_match_count == 0 %}
+<p>리그 시작 전입니다.<p>
+	{% else %}
+	<p>{{team_instance.win}}승 {{team_instance.draw}}무 {{team_instance.lose}}패 </p>
+	<br>
+	<p>리그 <span class="shadow">{{lanking}}</span>위	 </p>	
+	{% endif %}
+</div>
+</div> <!-- 몇승 몇패 끝
+-->
+<div class="container"> <!-- 두번째 div 시작  -->
+	<!-- player -->
+	<div class="col-md-3  input_box player_list_marign"> 
+		<!-- player name -->
+		<div class="media-body player_size">
+			{% if best_11_message %}
+			<p class="best11">{{best_11_message}}</p>
+			{% endif %}
+
+			{% for player in best_11 %}
+			<h4 data-toggle="popover" class="media-heading team_page_style first_div player_hover" value="{{player[0].pk}}">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>이름</th>
+							<th>포지션</th>	
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								{{player[0].player_name}}
+							</td>
+							{% if player[0].wildcard==1 %}
+							(W)
+							{% endif %}
+							<td>
+								{{player[0].position}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</h4>
+			{% endfor %}
+
+		</div>
+	</div>	 <!-- 선수 목록 끝 -->
+
+	<div class="col-md-4"><!--  이미지  -->
+		<img  class=" team_page_img"src="../static/res/img/soccer_back.jpg"/>
+	</div> <!-- 이미지 끝 -->
+
+	<!-- 두번째 div -->
+	<div class="col-md-5 col_5">
+		<div class="top_btm col-xs-12 col-md-12 input_box date_table_div">
+			<table class="table">
+
+				{% for player in goal_rank %}
+				<tr>
+					<td>최다골</td>
+					<td>{{player.player_name}}</td>
+					<td>{{player.goal}}골</td>
+
+				</tr>
+				{% endfor %}
+				{% for player in assist_rank %}
+				<tr>
+					<td>최다도움</td>
+					<td>{{player.player_name}}</td>
+					<td>{{player.assist}}도움</td>
+
+				</tr>
+				{% endfor %}
+				{% for player in match_rank %}
+				<tr>
+					<td>최다출전</td>
+					<td>{{player.player_name}}</td>
+					<td>{{player.match_count}}출전</td>
+
+				</tr>
+				{% endfor %}
+				{% for player in yellow_rank %}
+				<tr>
+					<td>경고누적</td>
+					<td>{{player.player_name}}</td>
+					<td>{{player.yellow_card_count}}회</td>
+
+				</tr>
+				{% endfor %}
+				{% for player in red_rank %}
+				<tr>
+					<td>퇴장누적</td>
+					<td>{{player.player_name}}</td>
+					<td>{{player.red_card_count}}회</td>
+
+				</tr>
+				{% endfor %}
+				{% for player in limit_rank %}
+				<tr>
+					<td>출전정지누적</td>
+					<td>{{player.player_name}}</td>
+					<td>{{player.accumulate_limit_of_participation}}회</td>
+
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+
+
+		<div class="input_box date_table_div">
+			<table class="table">
+
+				{% for item in match_list %}
+				<tr>
+					<td>{{item[2].year}}-{{item[2].month}}-{{item[2].day}}<br>{{item[2].hour}}:{{item[2].minute}}</td>
+					<td>{{item[2].round}}R</td>
+					<td>{{item[0].name}}</td>
+					{% if item[0].goal %}
+					<td>{{item[0].goal}}</td>
+					<td>vs</td>
+					<td>{{item[1].goal}}</td>
+					{% else %}
+					
+					<td colspan="3">경기 전입니다.</td>
+					
+					{% endif %}
+					<td>{{item[1].name}}</td>
+
+
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div> 
+</div>
+
+<div class="container player_list">
+	<div class="input_box player_list">
+		<table class="table" id="myTable">
+			<thead>
+				<tr>
+					{% if team_instance %}
+					<th id="1" onclick="sortName(this.id,{{team_instance.pk}});">이름</th>
+					<th id="2" onclick="sortName(this.id,{{team_instance.pk}});">소속대학</th>
+					<th id="3" onclick="sortName(this.id,{{team_instance.pk}});">소속학과</th>
+					<th id="4" onclick="sortName(this.id,{{team_instance.pk}});">포지션</th>
+					<th id="5" onclick="sortName(this.id,{{team_instance.pk}});">학번</th>
+					<th id="6" onclick="sortName(this.id,{{team_instance.pk}});">골</th>
+					<th id="7" onclick="sortName(this.id,{{team_instance.pk}});">도움</th>
+					<th id="8" onclick="sortName(this.id,{{team_instance.pk}});">출장경기수</th>
+					<th id="9" onclick="sortName(this.id,{{team_instance.pk}});">경고</th>
+					<th id="10" onclick="sortName(this.id,{{team_instance.pk}});">퇴장</th>
+					<th id="11" onclick="sortName(this.id,{{team_instance.pk}});">출장정지수</th>
+					<th id="12" onclick="sortName(this.id,{{team_instance.pk}});">누적출장제한수</th>
+					{% endif %}
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in player_instance %}
+				<tr>
+					<td>{{item.player_name}}
+						{% if item.wildcard==1 %}
+						(W)
+						{% endif %}
+					</td>
+					<td>{{item.college}}</td>
+					<td>{{item.major}}</td>
+					<td>{{item.position}}
+					<td>{{item.student_id}}</td>
+					<td>{{item.goal}}</td>
+					<td>{{item.assist}}</td>
+					<td>{{item.match_count}}</td>
+					<td>{{item.yellow_card_count}}</td>
+					<td>{{item.red_card_count}}</td>
+					<td>{{item.limit_of_participation}}</td>
+					<td>{{item.accumulate_limit_of_participation}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block body %}
+<!--my own css/js -->
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/registercss.css')}}">
+
+<div class=" page_font">
+	<form enctype='multipart/form-data' action="{{url_for('registermatch')}}" method='post'>
+		<BR><BR>
+		<div class="title_size col-sm-3 col-sm-offset-5"> 경기 등록</div>
+		<br><br>
+
+		<div class="textbox input-group col-sm-4 col-sm-offset-4" >
+			<label class="input-group-addon" for="inputLogo"> 라운드 </label>
+			<input type='number' class="pull-right  team_name form-control" name='matchround'>
+		</div>	
+
+
+		<div  class="textbox input-group col-sm-4 col-sm-offset-4">
+			<label  class="input-group-addon" for='team1'> 팀 1 </label>
+			<select class="pull-right  form-control" name='matchteam1'>
+				{% for team in league2list %}
+				<option value='{{team.pk}}'>{{team.name}}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		<div  class="textbox input-group col-sm-4 col-sm-offset-4" >
+			<label class="input-group-addon" for='team2'> 팀 2 </label>
+			<select class="pull-right  form-control" name='matchteam2'>
+				{% for team in league2list %}
+				<option value='{{team.pk}}'>{{team.name}} </option>
+				{% endfor %}
+			</select>
+		</div>
+				
+		<div class="textbox input-group col-sm-4 col-sm-offset-4" > 
+			<label  class="input-group-addon" for="inputmatchdate"> 경기 일자 </label>
+			<input type="date" name="matchdate" class="form-control pull-right">
+		</div>
+		<div class="col-sm-4 input-group col-sm-offset-4" >	
+			<label  class="input-group-addon" for="inputmatchour"> 경기 시간 </label>
+			<select  style="width: 135px;" class="hour_input form-control " name='matchhour'>
+				<option value='07'> 07 </option>
+				<option value='08'> 08 </option>
+				<option value='09'> 09 </option>
+				<option value='10'> 10 </option>
+				<option value='11'> 11 </option>
+				<option value='12'> 12 </option>
+				<option value='13'> 13 </option>
+				<option value='14'> 14 </option>
+				<option value='15'> 15 </option>
+				<option value='16'> 16 </option>
+				<option value='17'> 17 </option>
+				<option value='18'> 18 </option>
+				<option value='19'> 19 </option>
+				<option value='20'> 20 </option>
+				<option value='21'> 21 </option>
+				<option value='22'> 22 </option>
+				<option value='23'> 23 </option>
+			</select>
+			<select  style="width: 135px;" class="minute_input form-control pull-right"  name='matchminute'>
+				<option value='00'> 00 </option>
+				<option value='10'> 10 </option>
+				<option value='20'> 20 </option>
+				<option value='30'> 30 </option>
+				<option value='40'> 40 </option>
+				<option value='50'> 50 </option>
+			</select>
+		</div>
+
+		<div class="textbox input-group col-sm-4 col-sm-offset-4" >
+			<label  class="input-group-addon" for='inputLocation'> 장소 </label>
+			<input   class="  form-control pull-right" type='text' name='matchlocation'>
+		</div>						
+		<div class="  col-sm-1 col-sm-offset-6 button_align">
+			{% if session.role!="Player" %}
+			<button type="submit" class="btn btn-primary">저장하기</button>
+			{% endif %}
+			{% if session.role=="Player" %}
+			<a href="javascript:alert('권한이 없습니다.');">
+			<button type="button" class="btn btn-primary">저장하기</button>
+			</a>
+			{% endif %}
+
+
+		</div>
+	</form>
+</div>
+{% endblock %}

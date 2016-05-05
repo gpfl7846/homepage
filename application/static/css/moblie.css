@@ -1,0 +1,72 @@
+/*change column number by min width*/
+@media (min-width: 300px) {
+/*	#main{
+		width: 250px;
+		}*/	
+		body{
+			background:#183064;
+		}
+		
+	}
+
+
+
+	@media (min-width: 550px) {
+/*	#main{
+		width: 500px;
+		}*/		
+		body{
+			background:rgba(36,43,51,.8);
+		}
+	}
+
+	@media (min-width: 810px) {
+	/*#main{
+		width: 760px;
+		}	*/	
+		body{
+			background-image: url("../res/img/signup.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	}
+
+	@media (min-width: 1070px) {
+/*	#main{
+		width: 1020px;
+		}	*/
+		body{
+			background-image: url("../res/img/signup.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	}
+
+	@media (min-width: 1330px) {
+	/*#main{
+		width: 1280px;
+		}*/
+		body{
+			background-image: url("../res/img/signup.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	}
+	@media (min-width: 1590px) {
+	/*#main{
+		width: 1540px;
+		}*/	
+		body{
+			background-image: url("../res/img/signup.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	}

@@ -1,0 +1,301 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
+<link rel="stylesheet" href="{{url_for('static', filename='css/time_css.css')}}"/>
+<link rel="stylesheet" href="{{url_for('static', filename='css/jquery.countdown.css')}}" />
+<script type="text/javascript" src="{{url_for('static', filename ='js/jquery.countdown.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename ='js/time_js.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename ='js/Chart.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename ='js/doughnut.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename ='js/radar.js')}}"></script>
+<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+<link rel="stylesheet" href="{{url_for('static', filename='css/homepage.css')}}" />
+
+<div id="carousel-example-generic" class="height carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="container carousel-inner">
+        <div class="item active height">
+
+            <img src="../static/res/img/white.png" alt="...">
+            <div class="carousel-caption">
+                <div class="left_style col-md-2">
+                    <p class="team_name p_team_style">아스날</p>
+                    <hr color="ed181a" class="hr_team_style hr_styling">
+                    <p class="win_or_lose">WIN</p>
+
+                    <ul>
+                        <li><p>류재희<span class="goal_time">(30')</span></p></li>
+                        <li><p>한영후<span class="goal_time">(57')</span></p></li>
+                        <li><p>한영후<span class="goal_time">(87')</span></p></li>
+                    </ul>
+
+                </div>
+                <div class="col-md-8">
+                    <p class="p_style">LATEST RESULTS</p>
+                    <HR color="ed181a" class="title_hr hr_style " >
+                        <p class="k-camps">K-CHAMPS </p>
+
+
+
+                        <div class="shape">
+                            <div class="hexagon1">
+                                <p class="socre_1"> 3</p>
+                                <img class="img_style1"src="../static/res/img/asnal.png"/>
+                            </div>
+                            <div class="hexagon2">
+                                <p class="socre_2">2</p>
+                                <img class="img_style2"src="../static/res/img/Manchester.png"/>
+
+                            </div>
+                        </div>
+                        <div class="date">
+                            <p>2014년 10월 15일 | 15시 30분</p>
+
+                            <p>서울대경기장</p>
+                        </div>
+                        <a class="button1 read_more red_button" href="#">READ MORE</a>
+
+                    </div>
+                    <div class="right_style col-md-2">
+
+                        <p class="team_name p_team_style">맨유</p>
+                        <hr color="ed181a" class="hr_team_style hr_styling">
+                        <p class="win_or_lose">LOSE</p>
+
+                        <ul>
+                            <li><p>이혜리<span class="goal_time">(10')</span></p></li>
+
+                            <li><p>강현욱<span class="goal_time">(80')</span></p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 두번째 슬라이드  -->
+            <div class="container item">
+                <img src="../static/res/img/white.png" alt="...">
+                <div class="carousel-caption height">
+                    <div class=" col-md-4" class="next_match">
+
+                        <a class="button-color red_button" href="#">NEXT MATCH</a>
+                        <div id="countdown"></div>
+                        <div class="next_match_team_vs">
+                            <div>
+                                <img class="next_match_img_1"src="../static/res/img/asnal.png"/>
+                                <div class="next_match_team">
+                                    <span>Bristol City</span> 
+                                    <span class="vs">VS</span>
+                                    <span>Real Soccer</span>
+                                </div>
+                                <img class="next_match_img_2"src="../static/res/img/Manchester.png"/>
+                            </div>
+                        </div>
+                        <div class="upcoming_2">
+
+                            <div>2014년 10월 15일 | 15시 30분</div>
+
+                            <div>서울대경기장</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4"> 
+                        <div class="gdlr-item-title-wrapper gdlr-item pos-left ">
+                            <div class="gdlr-item-title-head">
+                                <h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">UPCOMING FIXTURES</h3>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="upcoming_1">
+
+                            <span>Bristol City</span> 
+                            <span class="vs">VS</span>
+                            <span>Real Soccer</span>
+
+                        </div>
+                        <div class="upcoming_2">
+
+                            <div>2014년 10월 15일 | 15시 30분</div>
+
+                            <div>서울대경기장</div>
+                        </div>
+                        <div class="upcoming_1">
+                            <span>Bristol City</span> 
+                            <span class="vs">VS</span>
+                            <span>Real Soccer</span>
+                        </div>
+                        <div class="upcoming_2">
+
+                            <div>2014년 10월 15일 | 15시 30분</div>
+
+                            <div>서울대경기장</div>
+                        </div>
+
+                        <a class="button1 gray_button" href="#">MORE FIXTURES</a>
+
+
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gdlr-item-title-wrapper gdlr-item pos-left ">
+                            <div class="gdlr-item-title-head">
+                                <h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">League Table</h3>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="gdlr-item gdlr-league-table-item" style="margin-bottom: 60px;">
+                            <table class="gdlr-small-league-table">
+                                <tbody>
+                                    <tr class="gdlr-table-second-head">
+                                        <th class="gdlr-table-team">Team</th>
+                                        <th class="gdlr-table-score">W</th><th class="gdlr-table-score">D</th>
+                                        <th class="gdlr-table-score">L</th><th class="gdlr-table-score">PTS</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="gdlr-table-team"><span class="team-count">1</span> Liverpool</td>
+                                        <td class="gdlr-table-score">13</td>
+                                        <td class="gdlr-table-score">1</td>
+                                        <td class="gdlr-table-score">0</td>
+                                        <td class="gdlr-table-score gdlr-table-pts">40</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gdlr-table-team"><span class="team-count">2</span> Valenciaca</td>
+                                        <td class="gdlr-table-score">12</td>
+                                        <td class="gdlr-table-score">2</td>
+                                        <td class="gdlr-table-score">0</td>
+                                        <td class="gdlr-table-score gdlr-table-pts">38</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gdlr-table-team"><span class="team-count">3</span> Prestige Country</td>
+                                        <td class="gdlr-table-score">11</td>
+                                        <td class="gdlr-table-score">3</td>
+                                        <td class="gdlr-table-score">0</td>
+                                        <td class="gdlr-table-score gdlr-table-pts">36</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gdlr-table-team"><span class="team-count">4</span> Real Madrid</td>
+                                        <td class="gdlr-table-score">11</td>
+                                        <td class="gdlr-table-score">2</td>
+                                        <td class="gdlr-table-score">1</td>
+                                        <td class="gdlr-table-score gdlr-table-pts">35</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gdlr-table-team"><span class="team-count">5</span> Millenium United</td>
+                                        <td class="gdlr-table-score">11</td>
+                                        <td class="gdlr-table-score">1</td>
+                                        <td class="gdlr-table-score">2</td>
+                                        <td class="gdlr-table-score gdlr-table-pts">34</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gdlr-table-team"><span class="team-count">6</span> Chelsea</td>
+                                        <td class="gdlr-table-score">11</td>
+                                        <td class="gdlr-table-score">0</td>
+                                        <td class="gdlr-table-score">3</td>
+                                        <td class="gdlr-table-score gdlr-table-pts">33</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="gdlr-table-team"><span class="team-count">7</span> Cannon United</td>
+                                        <td class="gdlr-table-score">9</td>
+                                        <td class="gdlr-table-score">5</td>
+                                        <td class="gdlr-table-score">0</td>
+                                        <td class="gdlr-table-score gdlr-table-pts">32</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <a class="button1 gray_button" href="#">View Full Table</a>
+                        </div>
+
+                    </div>          
+                </div>
+            </div>
+            <!-- 세번째 슬라이드  -->
+            <div class="continer item chart-area">
+                <img src="../static/res/img/white.png" alt="...">
+                <div class="container carousel-caption height">
+                    <div class="col-md-2">
+                       <img  class="img_size"src="../static/res/img/kang.png" alt="..." class="img-rounded">  
+                       <span class="font">강현욱</span>  
+
+                   </div>
+                   <div class="col-md-10">
+                    <div class="row">
+                        <div class="img_inline" >
+                            <img class="img_s" src="../static/res/img/soccer.png"/><span class="font"> 20</span>
+
+                        </div>
+
+                        <div class="img_inline" >
+                            <img class="img_s" src="../static/res/img/score.png"/><span class="font"> 12</span>
+                        </div>
+
+                        <div class="img_inline" >
+                            <img  class="img_s" src="../static/res/img/card.png"/><span class="font"> 22</span>
+                        </div>
+
+                    </div>
+
+                    <div id="canvas-holder" class="col-md-offset-1 col-md-4">
+                        <canvas id="chart-area" height="50" width="50" >
+                        </canvas>
+                    </div>
+                    <div class="col-md-4 col-md-offset-2">
+                        <canvas id="canvas" height="50" width="50"></canvas>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>  <!-- 이미지 슬라이드 마지막  -->
+
+<div class="gdlr-full-size-wrapper">
+    <div class="upcoming-match-item-wrapper ">
+        <div class="upcoming-match-overlay"></div>
+        <div class="team-wrapper">
+            <span class="upcoming-match-team-left">번리</span>
+            <span class="upcoming-match-versus">VS</span>
+            <span class="upcoming-match-team right">첼시</span>
+        </div>
+        <span class="match-result-info-wrapper">
+            <span class="upcoming-match-info-overlay"></span>
+            <span class="match-result-info"><i class="icon-calendar"></i>05 Sep 2016 - 14:00</span>
+            <span class="match-result-info"><i class="icon-location-arrow"></i>Seoul Stadium</span>
+        </span>
+    </div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+</div>
+
+<!-- Controls -->
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}

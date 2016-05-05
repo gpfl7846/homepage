@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body %}
+<link type="text/css" rel="stylesheet" href="">
+
+<div class="col-md-8 col_4">
+
+    <div class="gdlr-item-title-wrapper title_margin2 pos-left ">
+        <div class="    gdlr-item-title-head">
+            <h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">알림</h3>
+            <div class="clear"></div>
+        </div>
+    </div>
+    {% for notification in notification_list %}
+    	<p>보낸사람: {{notification.sender_name}}
+            <br>
+            팀:{% if notification.sender_team!="" %}{{notification.sender_team}}{% endif %}
+            <br>
+            {% if notification.type==1 or notification.type==4 or notification.type==13 %}
+            <a href="{{url_for('notification_confirm',notification_pk=notification.pk,result=1, type=notification.type)}}">승인</a>
+            <a href="{{url_for('notification_confirm',notification_pk=notification.pk,result=0, type=notification.type)}}">거절</a>
+            {% endif %}      
+            
+            {% if notification.type==7 or notification.type==11 or notification.type==10 or notification.type==14 or notification.type==15 or notification.type==16 or notification.type==18 or notification.type==19 %}
+            <a href="{{url_for('notification_confirm',notification_pk=notification.pk,result=1, type=notification.type)}}">확인</a>
+            {% endif %}
+            <br>
+            {% if notification.match!="" %}            
+                {{notification.match.date}}일 
+                {{notification.match.match_teams[0].team.name}}vs{{notification.match.match_teams[1].team.name}}
+
+            {% endif %}
+            
+            {% if notification.type==18 %}
+                경고누적으로 인해
+            {% endif %}
+
+            {% if notification.message!="" %}
+                {{notification.message}}
+            {% endif %}
+
+            {{notification.title}}
+
+    	</p><br>
+    {% endfor %}
+    
+</div>
+{% endblock %}

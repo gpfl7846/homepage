@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<style>
+  p{
+	text-align: center;
+}
+</style>
+</head>
+<body>
+{% if message_email %}
+	<p>{{message_email}}</p>
+{% endif %}
+
+{% if message_password %}
+	<p>{{message_password}}</p>
+{% endif %}
+
+{% if message_password_check %}
+	<p>{{message_password_check}}</p>
+{% endif %}
+
+{% if date_time %}
+{{date_time}}
+{% endif %}
+<br>
+{% if t_time %}
+{{t_time}}
+{% endif %}
+
+<h1>테스트 심판팀</h1>
+
+<form enctype='multipart/form-data' action="{{url_for('register_referee', match_pk=136)}}" method='post'>
+		<BR><BR>
+
+		<div  class="textbox input-group col-sm-4 col-sm-offset-4">
+			<label  class="input-group-addon" for='team1'> 주심 </label>
+			<select class="pull-right  form-control" name='r1'>
+				{% for player in player_list %}
+				<option value='{{player.pk}}'>{{player.player_name}}</option>
+				{% endfor %}
+			</select>
+		</div>
+				
+		
+		<div  class="textbox input-group col-sm-4 col-sm-offset-4">
+			<label  class="input-group-addon" for='team1'> 1부심 </label>
+			<select class="pull-right  form-control" name='r2'>
+				{% for player in player_list %}
+				<option value='{{player.pk}}'>{{player.player_name}}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		<div  class="textbox input-group col-sm-4 col-sm-offset-4">
+			<label  class="input-group-addon" for='team1'> 1부심 </label>
+			<select class="pull-right  form-control" name='r3'>
+				{% for player in player_list %}
+				<option value='{{player.pk}}'>{{player.player_name}}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		<div  class="textbox input-group col-sm-4 col-sm-offset-4">
+			<label  class="input-group-addon" for='team1'> 대기심 </label>
+			<select class="pull-right  form-control" name='r4'>
+				{% for player in player_list %}
+				<option value='{{player.pk}}'>{{player.player_name}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		
+		<div class="  col-sm-1 col-sm-offset-6 button_align">
+			<button type="submit" class="btn btn-primary">저장하기</button>
+
+		</div>
+	</form>
+
+
+
+</body>
+
+</html>

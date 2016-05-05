@@ -1,0 +1,169 @@
+@font-face {
+  font-family: vera;
+  src: url('../font/vera.otf');
+}
+
+td{
+  text-align: center;
+}
+
+.font_size_name{
+  font-size: 13px;
+}
+th{
+  text-align: center;
+}
+p{
+margin-bottom: 0em;
+}
+.top_btm{
+  margin-bottom: 9%;
+margin-top: 5%;
+font-size: 20px;
+}
+.shadow{
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.text_style{
+  padding: 9px;
+  color: #333;
+  text-align: center;
+}
+
+.leguage{
+
+margin-left: 15px;
+}
+.team_page_style{
+	color:white;
+	font-size:17px;
+  top: 34px;
+}
+.player_11{
+  padding: 30px; 
+  height: 446px;
+  margin-top: 33px;
+  padding-top: 20px;
+  margin-left: 10%;
+
+}
+
+.team_logo{
+
+  display: block;
+margin-left: 24%;
+margin-bottom: 24%;
+margin-right: 24%;
+margin-top: 10%;
+  width: 150px;
+  height: 150px;
+}
+.team_goal{
+
+font-size: 15px;
+padding-left: 20px;
+padding-right: 20px;
+padding-bottom: 20px;
+padding-top: 20px;
+height: 258px;
+overflow: auto;
+margin-top: 26px;
+}
+.team_page_img{
+
+  height: 50%;
+padding-top: 10%;
+padding-bottom: 10%;
+width: 100%;
+
+}
+.col_5 {
+margin-top: 1%;
+}
+.first_div{
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+.second_div{
+padding-top: 8%; 
+}
+
+.third_div{
+
+
+  padding-top: 23px;
+
+}
+.date_table_div{
+  
+  font-size: 11px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+height: 244px;
+
+  overflow: auto;
+
+
+}
+
+.help_table_div{
+
+  margin-top: 25px;
+
+  margin-bottom: 25px;
+
+  padding: 30px;
+}
+.text_center{
+ text-align: center;
+font-size: 53px;
+ font-family: vera;
+}
+.team_naming{
+  font-size: 34px;
+   text-align: center;
+}
+.result_position{
+	text-align: center;
+font-size: 34px;
+padding: 3%;
+margin-top: 7%;
+margin-left: 0px;
+}
+.best11{
+  margin-top: 1em;
+}
+
+.player_list_marign{
+  margin-top: 3%;
+}
+.player_size{
+
+  height: 529px;
+}
+.player_list{
+  padding: 30px;
+padding-top: 3%;
+  padding-bottom: 1%;
+  left: 7%;
+  
+}
+.input_box {
+  background-color: rgba(51,51,51,.7);
+  color: white;
+  font-family: vera;
+
+}
+
+
+.table_list{
+  font-size: 12px;
+}
+.th_style{
+  white-space: nowrap;
+}
+

@@ -1,0 +1,100 @@
+/*tab style*/
+.tab_style ul ul {
+	display: none;
+}
+
+.tab_style ul li:hover > ul {
+	display: block;
+}
+
+.tab_style ul {
+	
+	padding-left: 0px;
+	height: 46px;
+	background: #023f6b; 
+	background:#aa4243; 
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	padding: 0 20px;
+	border-radius: 4px; 
+	border-bottom-right-radius:0px;
+	border-bottom-left-radius:0px;     
+	list-style: none;
+	position: relative;
+	display: inline-table;
+	width: 100%;
+	text-align: center;
+
+}
+.tab_style ul:after {
+	content: ""; clear: both; display: block;
+}
+
+.tab_style ul li {
+	float: left;
+	width: 14%;
+}
+.tab_style ul li:hover {
+	background: #fff;
+	background: #633034;
+}
+.tab_style ul li:hover a {
+	color: #fff;
+}
+
+.tab_style ul li a {
+	display: block; padding: 7%;
+	color: white; 
+	text-decoration: none;
+}
+
+
+.tab_style ul ul {
+	background:#023f6b;
+	padding: 0;
+	position: absolute; top: 100%;
+	border-radius: 10px;
+}
+.tab_style ul ul li {
+	float: left; 
+	border-top: 1px solid #023f6b;
+	border-bottom: 1px solid #023f6b; position: relative;
+	border-radius: 10px;
+	width: 140px;
+}
+.tab_style ul ul li a {
+	padding: 15px 40px;
+	color: #fff;
+}	
+.tab_style ul ul li a:hover {
+	background: #633034;
+}
+
+.tab_style ul ul ul {
+	position: absolute; left: 100%; top:0;
+}
+
+
+[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+	top: 18px !important;
+	left: 50% !important;
+	margin-left: -90px !important;
+	width: 180px !important;
+	border: 2px rgba(255,255,255,.38) solid !important;
+	border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+	margin-left: 0px !important;
+}
+.ul_style{
+
+	margin-bottom: 0px;
+}
+
+.tab_padding{
+	padding-left: 0px;
+	margin-top: 100px;
+	width: 100%;
+
+}

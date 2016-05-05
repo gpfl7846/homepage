@@ -1,0 +1,215 @@
+@font-face {
+	font-family:wight;
+	src: url('../font/wight.woff2');
+}
+
+
+.hexagon1 {
+	width: 67px;
+	height: 101px;
+	background:#c31919;
+	position: relative;
+	left: 34%;
+	top: 22%;
+	transform: rotate(90deg);
+}
+
+.hexagon2 {
+
+	width: 67px;
+	height: 101px;
+	background: #c31919;
+	position: relative;
+	transform: rotate(90deg);
+	position: relative;
+	left: 60%;
+top: -76%;
+}
+
+.shape > div {
+	margin: 20px 0;
+}
+
+.hr_team_style {
+height: 0%;
+width: 100px;
+color: #ed181a;
+margin-top: 0;
+margin-bottom: 0;
+}
+
+hr {
+border: 0;
+border-top: none;
+padding: 4px 0 0 0;
+margin: 2px 0 0 0;
+}
+
+.hexagon1:before {
+content: "";
+position: absolute;
+top: -23px;
+left: -2px;
+width: 0;
+height: 0;
+border-left: 35px solid transparent;
+border-right: 35px solid transparent;
+border-bottom: 25px solid #c31919;
+}
+
+
+.hexagon2:after {
+content: "";
+position: absolute;
+bottom: -23px;
+left: -2px;
+width: 0;
+height: 0;
+border-left: 35px solid transparent;
+border-right: 35px solid transparent;
+border-top: 25px solid #c31919;
+}
+
+.p_style{
+
+	font-size: 30px;
+	color:white;
+	font-family: wight;
+}
+.k-camps{
+	font-size: 26px;
+	color:#d21c18;
+	height: 3px;
+}
+
+.k-color{
+	
+	color:#dc1822;
+}
+.hr_style{
+	height: 3px;
+	width: 46px;
+	color:#ed181a;
+}
+
+.readmore_button{
+
+	margin: 3%;
+}
+
+hr {
+	border-top: none; 
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #e24443;
+	border-color: #e24443;
+}
+.shape{
+
+
+	height:124px;
+
+}
+.date{
+	margin:3%;
+	font-size: 16px;
+
+
+}
+
+.left_style{
+	margin-top: 10%;
+	left: 20%;
+}
+
+
+
+.right_style{
+	margin-top: 10%;
+	right: 20%;
+
+}
+
+
+.team_name{
+	font-size: 30px;
+	font-family: wight;
+	color: black;
+}
+
+.p_team_style{
+
+	
+	font-size:  27px;
+	font-family: wight;
+	color: white;
+	margin-bottom: 3px;
+
+}
+
+.carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {
+width: 30px;
+height: 30px;
+margin-top: -125%;
+font-size: 30px;
+}
+
+.title_hr{
+
+margin-left: 47%;
+margin-bottom: 3%;
+}
+.img_style1{
+	width: 100px;
+	height: 100px;
+	left: -15px;
+	top: -43px;
+	position: relative;
+	transform: rotate(270deg);
+}
+
+.img_style2{
+	width: 100px;
+	height: 100px;
+	left: -23px;
+	top: -154px;
+	position: relative;
+	transform: rotate(270deg);
+}
+
+.socre_1{
+left: 0;
+top: 11px
+	position: relative;
+	transform: rotate(270deg);
+	font-size: 65px;
+}
+
+.socre_2{
+
+left: 0px;
+top: 55px;
+	position: relative;
+	transform: rotate(270deg);
+	font-size: 65px;
+}
+
+
+.win_or_lose{
+
+	color: #dc1822;
+	font-size: 20px;
+	margin-top: 7%;
+	font-family: wight;
+}	
+ul{
+	list-style:none;
+	padding-left:0px;
+}
+.goal_time{
+
+	color:#dc1822;
+
+}

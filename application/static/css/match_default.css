@@ -1,0 +1,203 @@
+nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+color: #FFF;
+cursor: default;
+background: none;
+border: 1px solid white;
+border-bottom-color: transparent;
+}
+.nav-tabs>li>a {
+margin-right: 1px;
+line-height: 1.428571;
+border: 1px solid transparent;
+border-radius: 4px 4px 0 0;
+}
+.tabpadding {
+padding-right: 0;
+padding-bottom: 1.5%;
+padding-top: 1%;
+}
+.match_pDD{
+padding: 10px 45px;
+}
+
+.ul_style{
+
+	padding-top: 27px;
+
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+.nav-tabs {
+border-bottom: none;
+}
+
+a:hover {
+	color: white;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+color: white;
+cursor: default;
+background: none;
+border: 1px solid white;
+border-bottom-color: transparent;
+}
+
+
+.nav-tabs>li>a:hover {
+	border-color:none;
+}
+.bodrder_style{
+
+	border:1px white solid;
+}
+
+.table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 16px;
+}
+
+.pull-left {
+	float: left;
+}
+
+.td-right{
+
+	float:right;
+}
+
+
+
+.gdlr-item {
+margin: 3% 3% 2%;
+min-height: 1px;
+}
+
+
+
+.small-result-item.even, .result-in-month.even {
+background-color: #f3f3f3;
+}
+
+
+.small-result-item.odd, .result-in-month.odd {
+background-color: #ebebeb;
+}
+
+.small-result-item {
+padding: 11px 20px;
+text-align: center;
+}
+.small-result-item {
+padding: 11px 20px;
+text-align: center;
+}
+
+
+.small-result-item .gdlr-result-match-team.gdlr-left {
+text-align: right;
+display: inline-block;
+}
+
+
+.small-result-item .gdlr-result-match-team {
+display: inline-block;
+width: 40%;
+}
+
+.small-result-item .gdlr-result-match-versus {
+margin: 0px 10px;
+
+
+}
+
+
+
+.small-result-item .gdlr-result-match-team.gdlr-right {
+text-align: left;
+}
+
+.small-result-item .gdlr-result-match-team {
+display: inline-block;
+width: 40%;
+}
+.upcoming{	
+padding: 1% 1%;
+font-size: 15px;
+}
+
+.gdlr-result-by-month-wrapper .gdlr-result-match-team-wrapper {
+display: inline-block;
+width: 56%;
+text-align: center;
+font-weight: bold;
+text-transform: uppercase;
+}
+
+
+ .gdlr-result-match-team.gdlr-left {
+
+text-align: right;
+display: inline-block;
+}
+
+ .gdlr-result-match-team {
+display: inline-block;
+
+}
+
+.gdlr-result-match-versus {
+margin: 0px 2.5%;
+padding: 0px 3px;
+font-weight: normal;
+display: inline-block;
+}
+
+
+.gdlr-result-by-month-wrapper .gdlr-result-match-separator {
+margin: 0px 2.5%;
+display: inline-block;
+}
+
+
+.display{
+display: inline-block;
+}
+
+
+.pull_left{
+text-align: left;
+
+margin-left: 3%;
+}
+tr{
+	cursor: pointer;
+}
+
+	/* provide some minimal visual accomodation for IE8 and below */
+	.TFtable tr{
+		background-color: rgba(184,209,243,.8);
+	}
+	/*  Define the background color for all the ODD background rows  */
+	.TFtable tr:nth-child(odd){ 
+		background-color: rgba(36,43,51,.8);
+	}
+	/*  Define the background color for all the EVEN background rows  */
+	.TFtable tr:nth-child(even){
+		background-color: rgba(61, 70, 79,.8);
+	}
+
+.left_align{
+
+	text-align: right;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+padding: 8px;
+line-height: 1.42857143;
+vertical-align: top;
+border-top: 1px solid #aa4243;
+}

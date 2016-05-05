@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<!--my own css/js -->
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/layoutcss.css')}}">
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/signup.css')}}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/edit_profile.js') }}"></script>
+
+
+<h2 class="info_title">정보 수정</h2>
+
+{% if profile_img %}
+ <img  class="img_center" src="{{ url_for('profile_img', filename=profile_img) }}" alt="profile img">
+{% endif %}
+	<form enctype="multipart/form-data" class="col-md-4 col-md-offset-4" action="{{ url_for('edit_profile',user_pk=session['user_pk']) }}" method="post">
+  <input class="img_file" type="file" name="profile_img">
+
+{% if form %}
+
+
+      {{ form.hidden_tag() }}
+
+      {% if form.errors %}
+        <div class="alert alert-danger fade in">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
+          {% for field, errors in form.errors.items() %}
+            <ul>
+              {% for error in errors %}
+              <li>
+                {{ error }}
+              </li>
+              {% endfor %}
+            </ul>
+          {% endfor %}
+
+        </div>
+      {% endif %}
+
+      {% if login_error %}
+        <div class="alert alert-danger fade in">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
+          {{ login_error }}
+
+        </div>
+      {% endif %}
+
+
+      {% for field in form if field.widget.input_type != "hidden" %}
+          <div class="form-group{% if field.errors %}has-error{% endif %}">
+              {% if user %}
+              <label for="{{field.id}}" class="col-sm-4  col-md-offset-4 control-label">{{ field.label }}</label>
+              {{  field(class="form-control", placeholder=field.description.placeholder) }}
+              {% endif %}
+            {% if field.errors %}
+            <div class="help-block">
+              <ul>
+                {% for error in field.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+
+          </div>
+      {% endfor %}    
+  {% endif %}
+
+  <div class="form-group">
+    <div class="col-sm-8 col-md-4 col-md-offset-5 control-label">
+      <button type="submit" class="btn btn-default">Edit</button>
+    </div>
+  </div>
+</form>
+
+
+{% endblock %}
+
+

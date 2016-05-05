@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+{% block body %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/match_default.css')}}">
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/rank.css')}}">			
+<div class="contianer">
+<div class="col-md-7 col_4">
+
+<div class="gdlr-item-title-wrapper title_margin2 pos-left ">
+			<div class="	gdlr-item-title-head">
+				<h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">팀 순위</h3>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<table class="table TFtable">
+		<tr class="player_title gdlr-table-pos">
+			<td class="gdlr-table-pos">RANK</td>
+			<td class="gdlr-table-team">팀이름</td>
+			<td class="gdlr-table-p">승</td>
+			<td class="gdlr-table-p">무</td>
+			<td class="gdlr-table-p">패</td>
+			<td class="gdlr-table-p">승점</td>
+			<td class="gdlr-table-p">차</td>
+			<td class="gdlr-table-p">득</td>
+			<td class="gdlr-table-p">실</td>
+		</tr>
+		{% for team in team_rank_list %}
+		<tr>
+			<td class="gdlr-table-pos">{{team.rank}}</td>
+			<td class="gdlr-table-team">{{team.name}}</td>
+			<td class="gdlr-table-p">{{team.win}}</td>
+			<td class="gdlr-table-p">{{team.draw}}</td>
+			<td class="gdlr-table-p">{{team.lose}}</td>
+			<td class="gdlr-table-p">{{team.point}}</td>
+			<td class="gdlr-table-p">{{team.goal_difference}}</td>
+			<td class="gdlr-table-p">{{team.goals_for}}</td>
+			<td class="gdlr-table-p">{{team.goals_against}}</td>
+		</tr>
+		{% endfor %}
+
+		</table>
+</div>
+
+
+<div class="col-md-4 col_4">
+	<div class="gdlr-item-title-wrapper title_margin pos-left ">
+			<div class="gdlr-item-title-head">
+				<h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">선수 순위</h3>
+				<div class="clear"></div>
+			</div>
+		</div>
+<table class="table TFtable">
+	<tr class="player_title gdlr-table-pos">
+		<td class="gdlr-table-pos">RANK</td>
+		<td class="gdlr-table-team">선수이름</td>
+		<td class="gdlr-table-p">득점</td>
+	</tr>
+{% for test in test_test %}
+	<tr>	
+		<td class="gdlr-table-pos">{{test.rank}}</td>
+		<td  class="gdlr-table-team">{{test.name}}</td>
+		<td class="gdlr-table-p">{{test.goal}}</td>			
+	</tr>
+{% endfor %}
+</table>
+</div>
+</div>
+{% endblock %}

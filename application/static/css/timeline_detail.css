@@ -1,0 +1,168 @@
+.num1{
+  left: 0px;
+ top: 21px;
+
+  position: relative;
+  transform: rotate(180deg);
+  font-size: 65px;
+}
+
+.tr_styling{
+text-align: center;
+padding-top: 1%;
+font-size: 19px;
+padding-right: 0px;
+padding-left: 0px;
+background-color: rgba(36,43,51,.8);
+font-weight: bold;
+}
+
+.xs_table_who {
+/* margin-left: 0%; */
+width: 84%;
+max-width: 84%;
+margin-bottom: 20px;
+}
+.xs_name_style {
+background: rgba(61,70,79,.8);
+text-align: center;
+font-size: 11px;
+}
+
+.xs_tr_styling{
+text-align: center;
+padding-top: 1%;
+padding-right: 0px;
+padding-left: 0px;
+background-color: rgba(36,43,51,.8);
+font-size: 13.5px;
+
+}
+
+.table-bordered>tbody>tr>td{
+  border:none;
+}
+.table>tbody>tr>td{
+  border-top: 1px solid #aa4243;
+  border-bottom: 1px solid #aa4243;
+}
+.table-bordered {
+ border: none; 
+}
+.name_style{
+ background: rgba(61,70,79,.8);
+ text-align: center;
+font-size: 15px;
+}
+
+.match_oin{
+margin-left: 9%;
+font-size: 47px;
+margin-top: -9%;
+}
+.where_to_xs{
+font-size: 16px;
+padding: 40px 0 0 5%;
+}
+
+
+
+.text_shadowing{
+text-shadow: -1px 0 black , 0 1px black , 1px 0 black , 0 -1px black;
+}
+.matchshape_1 {
+  width: 67px;
+  height: 81px;
+  background: #c31919;
+  position: relative;
+ right: 871%;
+top: 40%;
+  transform: rotate(180deg);
+
+}
+
+.matchshape_2 {
+  width: 67px;
+  height: 81px;
+  background: #3d464f;
+  position: relative;
+  left: 90%;
+  top: -98%;
+  transform: rotate(0deg);
+}
+
+
+.matchshape_1:before {
+	content: "";
+	position: absolute;
+	top: -25px;
+
+	left: -1px;
+	width: 0;
+	height: 0;
+	border-left: 34px solid transparent;
+	border-right: 34px solid transparent;
+	border-bottom: 25px solid #c31919;
+}
+
+
+.matchshape_2:after {
+	content: "";
+	position: absolute;
+	bottom: -24px;
+  left: 0px;
+  width: 0;
+  height: 0;
+  border-left: 34px solid transparent;
+  border-right: 34px solid transparent;
+  border-top: 25px solid #3d464f;
+}
+
+
+.num2{
+	left: 0px;
+top: 38px;
+   position: relative;
+  transform: rotate(0deg);
+  font-size: 65px;
+}
+
+.time_when1{
+  left: -1px;
+  top: 12px;
+  position: relative;
+  /* transform: rotate(270deg); */
+  font-size: 37px;
+}
+.left_side{
+  left: 20%;
+padding-top: 2%;
+}
+.right_side{
+  right: 20%;
+
+}
+.icon_style{
+  font-size: 24px;
+top: -32px;
+left: 80px;
+
+  margin-left: 2%;
+}
+
+.icon_right{
+  font-size: 24px;
+  top: -30px;
+  left: 55px;
+  margin-left: 4%;
+}
+.time_style{
+  font-size: 16px;
+
+}
+.text{
+	color:white;
+}
+
+
+

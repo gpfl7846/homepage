@@ -1,0 +1,16 @@
+cron:
+- description: schedule1
+  url: /find_match_tomorrow
+  schedule: every day 13:00
+  timezone: Asia/Seoul
+  target: ryu
+- description: schedule2
+  url: /request_match_result
+  schedule: every day 16:47
+  timezone: Asia/Seoul
+  target: ryu
+- description: schedule3
+  url: /find_overtime_key
+  schedule: every day 21:45
+  timezone: Asia/Seoul
+  target: ryu

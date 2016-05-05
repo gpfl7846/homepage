@@ -1,0 +1,378 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- first div -->
+<!-- team_page css/js -->
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/layoutcss.css')}}">
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/teampagecss.css')}}">
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/match.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename ='js/search_goal_player.js')}}"></script>
+<link href='http://fonts.g
+oogleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/font-awesome.min.css')}}">
+<!-- shape -->
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/layoutshape.css')}}" >
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/timeline_detail.css')}}" >
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/timeline.css')}}" >
+<div class="container">
+
+	<!-- 중앙 div  -->
+
+
+	<div class="col-md-8 col-md-push-2 col-xs-12" >
+		<div class="row">     
+			<p class="where_to_xs text_shadowing hidden-md hidden-lg">
+				<span> 10월 30일 (화) 18:00 서울대경기장</span>
+				<p class="match_oin hidden-md hidden-lg"> 2 vs 1</p>
+			</p>
+
+			<span class="where_to hidden-xs text_shadowing"> 10월 30일 (화) 18:00 서울대경기장 </span>      
+			<div class="shape hidden-xs">
+				<div class="matchshape_1">
+					<p class="num1"> 승</p>
+					<p class="first_team">{{team_list[0].name}}<br>{{team_list[0].college}} </p>	
+
+					<div class="row match_point">
+						<span> 1</span>
+						<span> vs</span>	
+						<span> 1</span>
+					</div>
+				</div>
+				<div class="matchshape_2">
+					<p class="num2">패</p>
+					<p class="second_team">{{team_list[1].name}}<br>{{team_list[1].college}}</p>
+
+				</div>
+
+			</div>
+
+
+
+		</div>
+	</div>
+
+	<!-- 중앙 div 시작  -->
+
+<!-- <div class="col-md-8 seconddiv_style">
+	<div class="place">
+		{{match_dic.year}}년 {{match_dic.month}}월 {{match_dic.day}}일<br>{{match_dic.hour}}시 {{match_dic.minute}} 분<br> {{match_dic.location}} 
+	</div>
+	<table> 
+	<!-- <div class="col-md-10 col-md-offset-1">
+		<table class="table_style table table-bordered">
+			<tbody>
+				<tr>
+					{% if goal_list %}
+					<td rowspan="2" class="td_style">{{goal_list[0]}}</td>
+					<td>1</td>
+					<td>전반</td>
+					<td>0</td>
+					<td rowspan="2" class="td_style">{{goal_list[1]}}</td>
+
+					{% else %}
+					<td rowspan="2" class="td_style"></td>
+					<td>1</td>
+					<td>전반</td>
+					<td>0</td>
+					<td rowspan="2" class="td_style"></td>	
+					{% endif %}			
+				</tr>
+				<tr>
+					<td>0</td>
+					<td>후반</td>
+					<td>0</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	
+
+	
+		<div class="col-md-4">
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="th_style">경고/퇴장</th>
+						<th class="th_style">이름</th>
+				
+			
+			
+
+
+					</div>  -->
+					<!-- 중앙 div 끝  -->
+
+
+
+					<!-- 처음 div 시작  -->
+					<div class=" col-md-2 col-xs-6 col-md-pull-8">
+						<!--team logo -->
+						<img class="logo_style logo_padding" src="{{url_for('get_teamlogo_after_match', filename=team_list[0].img)}}" alt="..." class="img-rounded">
+						<!-- team name -->
+
+						<!-- 첫번째 div table -->
+						<div class="input_box table_div list_margin">
+							<div class="media-body">
+								<table class="table table_list">
+									<thead>
+										<tr>
+											<th class="table_td th_style" >선수이름</th>
+											<th class="table_td no_padding th_style">포지션</th>
+
+										</tr>
+									</thead>
+
+									<tbody>
+										{% for item in player_list[0] %}
+										<tr>
+											<td>{{item.player_name}}
+												{% if item.wildcard==1 %}
+												(W)
+												{% endif %}
+											</td>
+											<td>{{item.position}}</td>
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+					</div>
+
+
+					<!-- 세번째 div 시작  -->
+					<div class=" col-md-2 col-xs-6">
+						<!--team logo -->
+						<img class="logo_style logo_padding" src="{{url_for('get_teamlogo_after_match', filename=team_list[1].img)}}" alt="..." class="img-rounded">
+						<!-- team name --> 
+
+
+
+						<!-- player -->
+						<div class="input_box table_div list_margin">
+							<div class="media-body">
+								<table class="table table_list">
+									<thead>
+										<tr>
+											<th class="table_td th_style" >선수이름</th>
+											<th class="table_td no_padding th_style">포지션</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										{% for item in player_list[1] %}
+										<tr>
+											<td>{{item.player_name}}
+												{% if item.wildcard==1 %}
+												(W)
+												{% endif %}
+											</td>
+											<td>{{item.position}}</td>
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-md-8 col-xs-12 col-md-push-2">
+					<img class="hidden-xs img_side" src="../static/res/img/side_soccer.jpg"/>
+					<img class="hidden-md hidden-lg visible-xs-12 xs_img_side" src="../static/res/img/side_soccer.jpg"/>
+
+					<table class="hidden-lg hidden-md visible-xs-12 xs_table_who table table-bordered">
+						<tbody>
+							<tr>
+								<td class="th_style xs_tr_styling">심판팀</td>
+								
+								<td class="xs_tr_styling th_style">주심</td>
+								<td class="xs_tr_styling th_style">제 1부심</td>
+								<td class="xs_tr_styling th_style">제2부심</td>
+								<td class="xs_tr_styling th_style">대기심</td>
+							</tr>
+							<tr>
+								<td class="th_style xs_name_style">아르마다</td>
+								<td class="th_style xs_name_style">강현욱</td>
+								<td class="th_style xs_name_style">알렉스</td>
+								<td class="th_style xs_name_style">쳔현정</td>
+								<td class="th_style xs_name_style">류재희</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+					<table class="table_who table table-bordered hidden-xs ">
+						<tbody>
+							<tr>
+								<td class="th_style tr_styling" >심판팀</td>
+								
+								<td class="tr_styling th_style">주심</td>
+								<td class="tr_styling th_style">제 1부심</td>
+								<td class="tr_styling th_style">제2부심</td>
+								<td class="tr_styling th_style">대기심</td>
+							</tr>
+							<tr>
+								<td class="name_style">아르마다</td>
+								<td class="name_style">강현욱</td>
+								<td class="name_style">알렉스</td>
+								<td class="name_style">쳔현정</td>
+								<td class="name_style">류재희</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+
+					<div class="col-md-6 col-md-offset-3">
+						<ul class="timeline">
+							<li> <!-- 왼쪽 첫번째  -->
+								<div class="timeline-badge">
+									<div class="second_time">
+										<i class="time_style">35'</i>
+									</div>
+								</div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<p class="timeline-title goal_name">손민응<img class="goal_img" src="../static/res/img/goal_w.png" >
+										</p>
+									</div>
+
+								</div>
+							</li> <!-- 왼쪽 첫번째 끝
+						-->						
+						<li> <!-- 왼쪽 두번째  -->
+							<div class="timeline-badge">
+								<div class="second_time">
+									<i class="time_style">45'</i>
+								</div>
+							</div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<p class="timeline-title goal_name">손민응<img class="red_img" src="../static/res/img/red_card.png" >
+									</p>
+								</div>
+
+							</div>
+							</li> <!-- 왼쪽 두번째 끝
+						-->
+						<!-- 오른쪽 첫번째  -->
+						<li class="timeline-inverted">
+							<div class="timeline-badge">
+								<div class="second_time">
+									<i class="time_style">65'</i>
+								</div>
+							</div>
+
+
+							<div class="timeline-panel">
+								<div class="timeline-heading rig_goal_padd">
+									<p class="timeline-title rig_goal_name">손민응<img class="goal_img" src="../static/res/img/goal_w.png">
+									</p>
+								</div>
+
+							</div>
+							</li> <!-- 오른쪽 첫번째 끝
+						-->
+
+						<li> <!-- 왼쪽 3번째  -->
+							<div class="timeline-badge">
+								<div class="second_time">
+									<i class="time_style">45'</i>
+								</div>
+							</div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<p class="timeline-title goal_name">손민응<img class="red_img" src="../static/res/img/yellow_card.png" >
+									</p>
+								</p>
+							</div>
+
+						</div>
+					</li> <!-- 왼쪽 3번째 끝 -->
+					<li> <!-- 왼쪽 4번째  -->
+						<div class="timeline-badge">
+							<div class="second_time">
+								<i class="time_style">45'</i>
+							</div>
+						</div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<p class="timeline-title  in_out" >손민응<img class=" in_out_img" src="../static/res/img/in_out.png" >
+									이두희</p>
+								</p>
+							</div>
+
+						</div>
+					</li> <!-- 왼쪽 4번째 끝 -->
+
+
+					<!-- 오른쪽 2번째  -->
+					<li class="timeline-inverted">
+						<div class="timeline-badge">
+							<div class="second_time">
+								<i class="time_style">65'</i>
+							</div>
+						</div>
+
+
+						<div class="timeline-panel">
+							<div class="timeline-heading rig_padd">
+								<p class="timeline-title rig_goal_name">손민응<img class="right_red_img" src="../static/res/img/red_card.png">
+								</p>
+							</div>
+
+						</div>
+							</li> <!-- 오른쪽 2번째 끝
+						-->
+						<!-- 오른쪽 3번째  -->
+						<li class="timeline-inverted">
+							<div class="timeline-badge">
+								<div class="second_time">
+									<i class="time_style">65'</i>
+								</div>
+							</div>
+
+
+							<div class="timeline-panel">
+								<div class="timeline-heading rig_padd">
+									<p class="timeline-title  rig_in_out" >손민응<img class=" in_out_img" src="../static/res/img/in_out.png" >
+										이두희</p>
+									</p>
+									
+								</div>
+
+							</div>
+							</li> <!-- 오른쪽 3번째 끝
+						-->
+						<!-- 오른쪽 4번째  -->
+						<li class="timeline-inverted">
+							<div class="timeline-badge">
+								<div class="second_time">
+									<i class="time_style">65'</i>
+								</div>
+							</div>
+
+
+							<div class="timeline-panel">
+								<div class="timeline-heading rig_padd">
+									<p class="timeline-title rig_goal_name">손민응<img class="goal_img" src="../static/res/img/goal_w.png">
+									</p>
+								</div>
+
+							</div>
+							</li> <!-- 오른쪽 4번째 끝
+						-->
+					</ul>	
+				</div>
+
+
+
+				{% endblock %}
+

@@ -1,0 +1,18 @@
+application: k-champsleague
+version: hye1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+# application[directory name] : module name
+- url: .*
+  script: application.app
+
+# Following Libraries don't have to be included in 'lib'
+libraries:
+- name: jinja2
+  version: "2.6"
+
+- name: markupsafe
+  version: "0.15"

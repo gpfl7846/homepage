@@ -1,0 +1,491 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- first div -->
+<!-- team_page css/js -->
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/layoutcss.css')}}">
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/match.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename ='js/before_match_team_select.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename ='js/before_match_lineup.js')}}"></script>
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/blue_button.css')}}">
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/registercss.css')}}">
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/timeline_detail_before.css')}}" >
+<div class="col-md-8 col-md-push-2">
+	<div class="place when_div">
+		{{match_dic.year}}년 {{match_dic.month}}월 {{match_dic.day}}일<br>{{match_dic.hour}}시 {{match_dic.minute}} 분 <br>{{match_dic.location}} 
+
+
+		<div class="row">
+
+			{% if ( session.role == 'Captain' and session.team_pk == team_list[0].pk ) or session.role == 'Committee' or session.role == 'Admin' %}
+			<div class="img_inline" >
+				<button class="pickteam  btn-link  button_col"  data-toggle="modal"  data-target="#Modal" value='{{team_list[0].pk}}'><img class="img_s" src="../static/res/img/team_list.png"/>
+				</button>
+			</div>
+			{% endif %}
+
+			<div class="img_inline" >
+				{% if session.role == 'Committee' or session.role == 'Admin' %}
+				<button class="btn-link	 button_col" data-toggle="modal" data-target="#myModal">
+					<img class="img_s" src="../static/res/img/whistle.png"/>
+				</button>
+				{% endif %}
+
+			</div>
+
+			<!-- 모달 버튼 -->
+			{% if session.role == 'Committee' or session.role == 'Admin' %}
+			<div class="img_inline" >
+				<button class="pickteam  btn-link button_col"   data-target="#resultModal" data-toggle="modal" data-target=".bs-example-modal-lg">
+					<img class="img_s" src="../static/res/img/pen.png"/>
+				</button>
+			</div>
+			{% endif %}
+
+			
+			{% if ( session.role == 'Captain' and session.team_pk == team_list[1].pk ) or session.role == 'Committee' or session.role == 'Admin' %}
+			<div class="img_inline" >
+				<button class="pickteam  btn-link button_col"  data-toggle="modal"  data-target="#secondModal" value='{{team_list[1].pk}}'><img  class="img_s" src="../static/res/img/team_list.png"/>
+				</button>
+			</div>
+			{% endif %}
+		</div>
+
+	</div>
+
+
+<div class="col-md-8 col-md-push-2"> 
+<div class="col-md-6">
+		<img class="img_style" src="../static/res/img/soccer_back.jpg"/>
+	</div>	
+
+
+	<!-- team2_div -->
+	<div class="col-md-6">
+		<img class="img_style" src="../static/res/img/soccer_back.jpg"/>
+	</div>	
+</div>
+
+	
+</div>
+
+
+
+<!-- 첫번 째 div -->
+<div class=" col-md-2 col-md-pull-8 col-xs-6">
+	<!--team logo -->
+	
+	<img class="logo_style" src="{{url_for('get_teamlogo_image_before_match',filename=team_list[0].img)}}" alt="..." class="img-rounded">
+	<!-- team name -->
+	<p class="text_center">{{team_list[0].name}}</p>
+	
+	<!-- 첫번째 div 선 수 라인업  -->
+
+	<div class="div_style table_div player_list2">
+		<div class="media-body">
+			<table class="table table_list">
+				<thead>
+					<tr>
+
+						<th class="th_style" >선수이름</th>
+						<th class="th_style">포지션</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for item in player_list[0] %}
+					<tr>
+						<td>
+							{{item.player_name}}
+							{% if item.wildcard==1 %}
+							(W)
+							{% endif %}
+						</td>
+						<td>{{item.position}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!-- 두번째 라인업 --> 
+<div class=" col-md-2  col-xs-6">
+	<!--team logo -->
+	<img class="logo_style " src="{{url_for('get_teamlogo_image_before_match',filename=team_list[1].img)}}" alt="..." class="img-rounded">
+
+	<!-- team name -->
+	<p class="text_center">{{team_list[1].name}}</p>
+	
+	<!-- 두번째 라인업  -->
+	<div class="div_style table_div player_list2">
+		<div class="media-body">
+			<table class="table table_list">
+				<thead>
+					<tr>
+
+						<th class="th_style" >선수이름</th>
+						<th class="th_style">포지션</th>
+
+
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for item in player_list[1] %}
+					<tr>
+						<td>{{item.player_name}}
+							{% if item.wildcard==1 %}
+							(W)
+							{% endif %}
+						</td>
+
+						<td>{{item.position}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<!-- 모달 4개 시작  -->
+<!-- 첫번째 라인업 모달  -->
+<div class="modal fade bs-example-modal-lg" id="Modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-header modal_title_foot">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<p class="modal-title modal_title" id="myModalLabel">라인업 등록하기</p>
+		</div>
+		<div class="modal-content model_background">
+			<div class="col-md-5">
+				<div class="input_box player_list2">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>이름</th>
+								<th>소속학과</th>
+								<th>포지션</th>
+								<th>학번</th>
+							</tr>
+						</thead>
+						<tbody class='player_list' id = '{{team_list[0].pk}}player_list'>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<table class="table table_list">
+					<thead>
+						<tr>
+
+							<th class="th_style" >선수이름</th>
+							<th class="th_style">포지션</th>
+
+
+						</tr>
+					</thead>
+
+					<tbody id='{{team_list[0].pk}}lineup'>
+						{% for item in player_list[0] %}
+						<tr>					<td>{{item.player_name}}
+							{% if item.wildcard==1 %}
+							(W)
+							{% endif %}
+						</td>
+						<td>{{item.position}}</td>	
+					</tr>
+					{% endfor %}
+				</tbody>				
+			</table>
+		</div>
+		<div class="col-md-4">
+			<img class="img_style" src="../static/res/img/soccer_back.jpg"/>
+		</div>
+	</div>
+	<div class="modal-footer modal_title_foot">
+
+		<button type="button" class="btn_margin btn btn-primary">저장하기</button>
+
+	</div>
+</div>
+</div>  <!-- 첫번째 div의 라인업 등록  모달 끝 -->
+
+
+
+
+
+
+<!-- 라인업 등록하기 Modal 안 팀 2 -->
+<div class="modal fade bs-example-modal-lg" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-header  modal_title_foot">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<p class="modal-title modal_title" id="myModalLabel">라인업 등록하기</p>
+		</div>
+		<div class="modal-content model_background  ">
+			<div class="col-md-5">
+				<div class="input_box player_list2">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>이름</th>
+								<th>소속학과</th>
+								<th>포지션</th>
+								<th>학번</th>
+							</tr>
+						</thead>
+						<tbody class='player_list' id = '{{team_list[1].pk}}player_list'>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<table class="table table_list">
+					<thead>
+						<tr>
+
+							<th class="th_style" >선수이름</th>
+							<th class="th_style">포지션</th>
+
+
+						</tr>
+					</thead>
+
+					<tbody id='{{team_list[1].pk}}lineup'>
+						{% for item in player_list[1] %}
+						<tr>
+							<td>{{item.player_name}}
+								{% if item.wildcard==1 %}
+								(W)
+								{% endif %}
+							</td>
+							<td>{{item.position}}</td>
+							<td><button class="addplayer blue-button">-</button></td> 
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-4">
+				<img class="img_style" src="../static/res/img/soccer_back.jpg"/>
+			</div>
+		</div>
+		<div class="modal-footer  modal_title_foot">
+			<a href="{{url_for('before_match', match_pk=match_dic.pk)}}">
+				<button type="button" class="btn_margin btn btn-primary">저장하기</button></a>
+
+			</div>
+		</div>
+	</div>  <!-- 두 번 째 div 모달 끝
+-->
+
+
+<!-- 경기 수정 Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal_color">
+		<div class="modal-content ">
+			<div class="modal-header modal_title_foot">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<p class="modal-title modal_title" id="myModalLabel">경기 수정</p>
+			</div>
+			<div class="modal-body model_background">
+
+
+
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label color_white">구장</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="place" placeholder="구장 ">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label color_white">경기 일자</label>
+						<div class="col-sm-10">
+							<input type="date" class="form-control" id="date" placeholder="경기 일자">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label color_white">경기 시간 </label>
+						<div class="col-sm-10">
+							<select style="width: 48%;" class=" form-control hour_in pull-left" name='matchhour'>
+								<option class="option_back"value='07'> 07 </option>
+								<option class="option_back" value='08'> 08 </option>
+								<option  class="option_back" value='09'> 09 </option>
+								<option class="option_back" value='10'> 10 </option>
+								<option class="option_back" value='11'> 11 </option>
+								<option class="option_back" value='12'> 12 </option>
+								<option class="option_back" value='13'> 13 </option>
+								<option class="option_back" value='14'> 14 </option>
+								<option class="option_back" value='15'> 15 </option>
+								<option class="option_back" value='16'> 16 </option>
+								<option class="option_back" value='17'> 17 </option>
+								<option class="option_back" value='18'> 18 </option>
+								<option  class="option_back" value='19'> 19 </option>
+								<option class="option_back" value='20'> 20 </option>
+								<option class="option_back" value='21'> 21 </option>
+								<option class="option_back" value='22'> 22 </option>
+								<option class="option_back" value='23'> 23 </option>
+							</select>
+							<select  style="width: 48%;" class="pull-right form-control "  name='matchminute'>
+								<option class="option_back" value='00'> 00 </option>
+								<option class="option_back"  value='10'> 10 </option>
+								<option class="option_back" value='20'> 20 </option>
+								<option class="option_back" value='30'> 30 </option>
+								<option class="option_back" value='40'> 40 </option>
+								<option class="option_back"  value='50'> 50 </option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label color_white">심판팀</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control"  name='referee_team' placeholder="심판팀">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label color_white">심판</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control"  name='referee'placeholder="심판">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label color_white">일부심</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name='assistant_referee_1' placeholder="일부심">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label color_white">이부심</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name='assistant_referee_2' placeholder="이부심">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label color_white">대기심</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control"name='fourth_official' placeholder="대기심">
+						</div>
+					</div>
+				</form>
+
+			</div> <!-- 모델 끝  -->
+			<div class="modal-footer  modal_title_foot">
+				<button type="button" class="btn_margin btn btn-primary">수정하기</button>
+
+			</div>
+		</div>
+	</div>
+</div> <!-- 경기 수정 모달 끝  -->
+
+
+
+
+<!--결과 등록  모달 내용 -->
+
+<div class="who modal fade bs-example-modal-lg" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal_back">
+		<div class="modal-header modal_title_foot">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<p class="modal-title modal_title" id="myModalLabel">경기 결과 등록 하기</p>
+		</div>
+		<form enctype='multipart.form-data' action ='{{url_for("input_match_result")}}'class="form-horizontal" role="form" method='post'>
+			<div class="modal-content model_background">
+				<!-- 모달 내용  -->
+				<div class="upcoming-match-item-wrapper gdlr-item modal_back" style="margin-bottom: 0px;">
+
+					<span class=" modal_title" >{{team_list[0].name}}</span>
+					<span class=" modal_title" >VS</span>
+					<span class=" modal_title" >{{team_list[1].name}}</span>
+				</div>
+				<div>
+					<ul class="timeline">
+						<li class="circle_li">
+							<div class="timeline-badge"><i class="time_style">32'</i></div>
+							<div class="timeline-panel left_side">
+								<div class="timeline-heading timeline_title_style">
+									<h3 class="timeline-title timeline_title_left">이혜리</h3>
+									<p><small class="text-muted"><i class="glyphicon icon_style glyphicon-time"></i></small></p>
+								</div>
+
+							</div>
+						</li>
+						<li class=" circle_li timeline-inverted">
+							<div  class="timeline-badge"><i class="time_style icon_right">47'</i></div>
+							<div class="timeline-panel right_side">
+								<div class="timeline-heading timeline_title_style_right">
+									<h3 class="timeline-title timeline-title-right">이혜리</h3>
+									<p><small class="text-muted"><i class="glyphicon icon_right glyphicon-time"></i></small></p>
+								</div>
+
+							</div>
+						</li>
+						<li class="circle_li">
+							<div class="timeline-badge"><i class="time_style">50'</i></div>
+							<div class="timeline-panel left_side">
+								<div class="timeline-heading timeline_title_style">
+									<h3 class="timeline-title  timeline_title_left">이혜리</h3>
+									<p><small class="text-muted"><i class="glyphicon icon_style glyphicon-time"></i></small></p>
+								</div>
+							</div>
+						</li>
+						
+					<!-- 	<li class="circle_li">
+							<div class="timeline-badge"><i class="time_style">78'</i></div>
+							<div class="timeline-panel left_side">
+								<div class="timeline-heading timeline_title_style">
+									<h3 class="timeline-title timeline_title_left">이혜리</h3>
+									<p><small class="text-muted"><i class="glyphicon icon_style glyphicon-time"></i></small></p>
+								</div>
+							</div>
+						</li> -->
+					</ul>
+				</div>
+				<!-- 새로 넣은칸-->
+				<div class="form-group">
+					<div class="form-group">
+						<label for="inputPassword3" class="write_result text_shadow col-sm-2 control-label color_white">결과 입력 </label>
+						<div class="col-sm-10 ">
+							<select style="
+							width: 20%;
+							" class="width form-control hour_in pull-left" name='matchhour'>
+							<option class="option_back"value='07'> 득점</option>
+							<option class="option_back" value='08'> 교체 </option>
+							<option  class="option_back" value='09'> 경고 </option>
+							<option class="option_back" value='10'> 퇴장 </option>
+
+						</select>
+
+						<input style="
+						width: 20%;
+						" type="text" class="form-control width col-sm-2" id="when_time" placeholder="시간">
+						<input style="
+						width: 20%;
+						" type="text" class="form-control width col-sm-2" id="goal" placeholder="득점 선수">
+						<input style="
+						width: 20%;
+						" type="text" class="form-control width col-sm-2" id="helper" placeholder="도움 선수 ">
+						<button class="btn_maign_1 btn btn-primary">+</button>  
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer modal_title_foot">
+				{% if session.role=="Committee" %}
+				<button type="submit" class=" btn btn-primary">저장하기</button>
+				{% endif %}
+				
+			</div>	
+		</div>
+	</form>
+
+</div>	
+</div> <!-- 점수 등록 끝  -->
+{% endblock %}

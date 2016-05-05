@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Korea Amateur Soccer League</title>
+
+	<script type="text/javascript" src="{{url_for('static', filename='js/jquery-1.11.1.min.js')}}"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='js/jquery.bootstrap-autohidingnavbar.min.js')}}"></script>
+
+	<script type="text/javascript" src="{{url_for('static', filename='js/skel.min.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='js/skel-layers.min.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='js/init.js')}}"></script>
+	<!-- css -->
+
+
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+	<!--my own css/js -->
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/layoutcss.css')}}">
+
+	<!-- nav css/js -->
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/tab_style.css')}}">
+	
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/tabstyle.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/registercss.css')}}">
+
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/layoutcss.css')}}">
+
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/skel.css')}}">
+	
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style-desktop.css')}}">
+
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style-mobile.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style-narrow.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style-narrower.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style-wide.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style-narrower.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/font-awesome.min.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/layoutshape.css')}}">
+</head>
+
+<body class="left-sidebar">
+	{% block navbar %}
+	<!-- login & signup tab -->
+	<nav id="nav-main" class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation" >
+		<div class="container " >
+			<div class=" collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					{% if session.logged_in %}
+					<li><a href="{{url_for('logout')}}">로그아웃</a></li>
+					<li><a href="{{url_for('edit_profile',user_pk=session['user_pk'])}}">정보수정</a></li>
+					<li><a href="{{url_for('player')}}">마이페이지</a></li>
+					{% if session.role == 'Captain' or session.role == 'Committee' or session.role == 'Admin' %}
+					<li><a data-toggle="modal" data-target="#teamModal"> 팀 등록 </a></li>
+					{% if session.role != 'Captain' %}
+					<li><a data-toggle="modal" data-target="#registerModal"> 경기 등록 </a></li>
+					{% endif %}
+					{% endif %}
+					<li>
+						<a href="{{url_for('my_notification',user_pk=session['user_pk'])}}">
+							<span class="badge pull-right">{% if notification_count %}{{notification_count}}{% endif %}</span>
+							알림 
+						</a>
+					</li>
+					<li><a data-toggle="modal" data-target="#feedbackModal">피드백/오류신고</a></li>
+					{% else %}
+					<li><a href="{{url_for('login')}}">로그인</a></li>
+					<li><a href="{{url_for('signup')}}">회원가입 </a></li>
+					{% endif %}
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container nav_end-->
+	</nav>  <!-- end nav -->
+
+
+	{% endblock %}
+	<!-- start tab -->
+
+	{% block subnavbar %}
+	{% if session.logged_in %}
+	<nav id="subnav" class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation" style="margin-top: 50px; background: #aa4243;">
+		<div class="container " style="height: 50px;">
+			<div class=" collapse navbar-collapse" style="height: 50px;">
+				<ul class="nav nav-justified">
+					<li><a href="/">Home</a></li>
+					<li><a href="/calendar">일정</a></li>
+					<li><a href="/match_default">경기정보</a></li>
+					<li><a href="/teamdefault">팀 정보</a></li>
+					<li><a href="/rank">순위</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	{% endif %}
+	{% endblock %}
+	<div class="tab_padding">
+	</div>
+
+	<div class="body_style">
+		{% block body %}
+		{% endblock %}
+	</div>
+
+	<script>$("#subnav").autoHidingNavbar();</script>
+
+
+
+	<!-- registerModal-->
+	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header modal_title_foot">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<p class="team_font modal-title" id="myModalLabel">경기 등록 </p>
+				</div>
+				<div class="model_background modal-body">
+					
+
+					<div class=" page_font">
+						<form enctype='multipart/form-data' action="{{url_for('registermatch')}}" method='post'>
+							<div class="textbox input-group col-sm-4 col-sm-offset-4" >
+								<label class="input-group-addon" for="inputLogo"> 라운드 </label>
+								<input type='number' class="round round_font pull-right  form-control" name='matchround'>
+							</div>	
+
+
+							<div  class="textbox input-group col-sm-4 col-sm-offset-4">
+								<label  class="input-group-addon" for='team1'> 팀 1 </label>
+								<select class="team pull-right  form-control" name='matchteam1'>
+									{% for team in league2list %}
+									<option class="option_back" value='{{team.pk}}'>{{team.name}}</option>
+									{% endfor %}
+								</select>
+							</div>
+
+							<div  class="textbox input-group col-sm-4 col-sm-offset-4" >
+								<label class="input-group-addon" for='team2'> 팀 2 </label>
+								<select class="team pull-right  form-control" name='matchteam2'>
+									{% for team in league2list %}
+									<option  class="option_back" value='{{team.pk}}'>{{team.name}} </option>
+									{% endfor %}
+								</select>
+							</div>
+							
+							<div class="textbox input-group col-sm-4 col-sm-offset-4" > 
+								<label  class="input-group-addon" for="inputmatchdate"> 경기 일자 </label>
+								<input type="date" name="matchdate" class="when form-control pull-right">
+							</div>
+							<div class="textbox  input-group col-sm-offset-1 col-md-8" >	
+								<label  class="input-group-addon" for="inputmatchour"> 경기 시간 </label>
+								<select  style="width: 135px;" class=" time_hr_1 form-control " name='matchhour'>
+									<option class="option_back" value='07'> 07 </option>
+									<option class="option_back" value='08'> 08 </option>
+									<option class="option_back" value='09'> 09 </option>
+									<option class="option_back" value='10'> 10 </option>
+									<option  class="option_back" value='11'> 11 </option>
+									<option class="option_back" value='12'> 12 </option>
+									<option class="option_back" value='13'> 13 </option>
+									<option class="option_back" value='14'> 14 </option>
+									<option class="option_back" value='15'> 15 </option>
+									<option class="option_back" value='16'> 16 </option>
+									<option class="option_back" value='17'> 17 </option>
+									<option class="option_back" value='18'> 18 </option>
+									<option class="option_back" value='19'> 19 </option>
+									<option class="option_back" value='20'> 20 </option>
+									<option class="option_back" value='21'> 21 </option>
+									<option class="option_back" value='22'> 22 </option>
+									<option class="option_back" value='23'> 23 </option>
+								</select>
+								<select  style="width: 135px;" class="time_min minute_input form-control pull-right"  name='matchminute'>
+									<option class="option_back" value='00'> 00 </option>
+									<option class="option_back" value='10'> 10 </option>
+									<option class="option_back" value='20'> 20 </option>
+									<option class="option_back" value='30'> 30 </option>
+									<option class="option_back" value='40'> 40 </option>
+									<option class="option_back" value='50'> 50 </option>
+								</select>
+							</div>
+
+							<div class="textbox input-group col-sm-4 col-sm-offset-4" >
+								<label  class="input-group-addon" for='inputLocation'> 장소 </label>
+								<input   class="where  form-control pull-right" type='text' name='matchlocation'>
+							</div>						
+							<div class="  col-sm-1 col-sm-offset-6 button_align">
+								{% if session.role!="Player" %}
+								<button type="submit" class="btn_position btn btn-primary">저장하기</button>
+								{% endif %}
+								{% if session.role=="Player" %}
+								<a href="javascript:alert('권한이 없습니다.');">
+									<button type="button" class="btn_position btn btn-primary">저장하기</button>
+								</a>
+								{% endif %}
+
+
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal_title_foot modal-footer">
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- 팀등록  -->
+	<div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header modal_title_foot">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<p class=" team_font modal-title" id="myModalLabel"> 팀 등록</p>
+				</div>
+				<div class="model_background modal-body">
+					<div class="team_font">
+						<form enctype='multipart/form-data' action="{{url_for('registerteam')}}" method='POST'>
+							
+							<div class="textbox input-group  col-sm-4 col-sm-offset-4">
+
+								<label class="input-group-addon" for='inputEmail'> 팀 이름 </label>
+								<input  type='text'  class=" pull-right team_name_box form-control" name='teamname'>
+							</div>
+
+
+							<div class="textbox input-group col-sm-4 col-sm-offset-4">
+								<label class="select input-group-addon" for='inputCollege'> 소속 단과대 </label>
+								<select name='college' class="form-control">
+									<option class="option_back" value="사범대학">사범대</option>
+									<option class="option_back" value="경영대학">경영대</option>
+									<option class="option_back" value="공과대학">공대</option>
+									<option class="option_back" value="자연과학대학">자연대</option>
+									<option class="option_back" value="농생대학">농생대</option>
+									<option class="option_back" value="인문대학">인문대</option>
+									<option class="option_back" value="사회과학대학">사회대</option>
+									<option class="option_back" value="의과대학">의대</option>
+									<option class="option_back" value="생활과학대학">생활대</option>
+									<option class="option_back" value="관악사">관악사</option>
+									<option class="option_back" value="중앙동아리">중앙동아리</option>
+								</select>
+							</div>
+
+							<div class="textbox input-group col-sm-4 col-sm-offset-4">
+								<label class="input-group-addon" for="inputLogo"> 팀 로고 등록 </label>
+								<input class="form-control" type='file' name='teamlogo'>
+							</div>
+
+							<div class=" col-sm-1 col-sm-offset-6 button_align">
+								{% if session.role!="Player" %}
+								<button type="submit" class="btn_position btn btn-primary">저장하기</button>
+								{% endif %}
+								{% if session.role=="Player" %}
+								<a href="javascript:alert('권한이 없습니다.');">
+									<button type="button" class="btn_position btn btn-primary">저장하기</button>
+								</a>
+								{% endif %}
+
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class=" modal_title_foot modal-footer">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+ <!-- 피드백 신고 모달-->
+ 	<!-- 팀등록  -->
+	<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header modal_title_foot">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<p class=" team_font modal-title" id="myModalLabel"> 피드백/오류신고</p>
+				</div>
+				<div class="model_background modal-body">
+					<div class="team_font">
+						<form enctype='multipart/form-data' action="{{url_for('feedback')}}" method='POST'>
+							
+							<div class="textbox input-group  col-sm-4 col-sm-offset-4">
+
+								<label class="input-group-addon" for='inputEmail'> 내용 </label>
+								<input  type='textarea' class=" pull-right team_name_box form-control" name='content'>
+							</div>
+
+
+
+							<div class=" col-sm-1 col-sm-offset-6 button_align">
+								
+								<button type="submit" class="btn_position btn btn-primary">보내기</button>
+								
+
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class=" modal_title_foot modal-footer">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 반응 형 웹  -->
+	<div id="wrapper">
+
+	</div>
+
+	<!-- Sidebar -->
+	<div id="sidebar" class="hidden-md hidden-sm hidden-lg">
+		<!-- Logo -->
+		<h1 id="logo"><a href="#">K-Champs</a></h1>
+		
+		<!-- Nav -->
+			{% if session.logged_in %}
+		<nav id="nav">
+			<header>
+				<h2>메뉴</h2>
+			</header>
+			<ul>
+				
+				<li><a href="/">Home</a></li>
+				<li><a href="/calendar">일정</a></li>
+				<li><a href="/match_default">경기정보</a></li>
+				<li><a href="/teamdefault">팀 정보</a></li>
+				<li><a href="/rank">순위</a></li>
+			</ul>
+		</nav>
+	{% endif %}
+		<!-- Recent Posts -->
+		<section class="box recent-posts">
+								<!-- <header>
+									<h2>메뉴</h2>
+								</header> -->	
+								{% if session.logged_in %}
+								<li><a href="{{url_for('logout')}}">로그아웃</a></li>
+								<li><a href="{{url_for('edit_profile',user_pk=session['user_pk'])}}">정보수정</a></li>
+								<li><a href="{{url_for('player')}}">마이페이지</a></li>
+								{% if session.role == 'Captain' or session.role == 'Committee' or session.role == 'Admin' %}
+								<li><a data-toggle="modal" data-target="#teamModal"> 팀 등록 </a></li>
+								{% if session.role != 'Captain' %}
+								<li><a data-toggle="modal" data-target="#registerModal"> 경기 등록 </a></li>
+								{% endif %}
+								{% endif %}
+								<li>
+									<a href="{{url_for('my_notification',user_pk=session['user_pk'])}}">
+										<span class="badge pull-right">{% if notification_count %}{{notification_count}}{% endif %}</span>
+										알림 
+									</a>
+								</li>
+								{% else %}
+								<li><a href="{{url_for('login')}}">로그인</a></li>
+								<li><a href="{{url_for('signup')}}">회원가입 </a></li>
+								{% endif %}
+							</ul>
+						</section>
+						
+						<!-- Recent Comments -->
+					
+						
+						<!-- Calendar -->
+						<section class="box calendar">
+							<div class="inner">
+								<table>
+									<caption>July 2014</caption>
+									<thead>
+										<tr>
+											<th scope="col" title="Monday">M</th>
+											<th scope="col" title="Tuesday">T</th>
+											<th scope="col" title="Wednesday">W</th>
+											<th scope="col" title="Thursday">T</th>
+											<th scope="col" title="Friday">F</th>
+											<th scope="col" title="Saturday">S</th>
+											<th scope="col" title="Sunday">S</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="4" class="pad"><span>&nbsp;</span></td>
+											<td><span>1</span></td>
+											<td><span>2</span></td>
+											<td><span>3</span></td>
+										</tr>
+										<tr>
+											<td><span>4</span></td>
+											<td><span>5</span></td>
+											<td><a href="#">6</a></td>
+											<td><span>7</span></td>
+											<td><span>8</span></td>
+											<td><span>9</span></td>
+											<td><a href="#">10</a></td>
+										</tr>
+										<tr>
+											<td><span>11</span></td>
+											<td><span>12</span></td>
+											<td><span>13</span></td>
+											<td class="today"><a href="#">14</a></td>
+											<td><span>15</span></td>
+											<td><span>16</span></td>
+											<td><span>17</span></td>
+										</tr>
+										<tr>
+											<td><span>18</span></td>
+											<td><span>19</span></td>
+											<td><span>20</span></td>
+											<td><span>21</span></td>
+											<td><span>22</span></td>
+											<td><a href="#">23</a></td>
+											<td><span>24</span></td>
+										</tr>
+										<tr>
+											<td><a href="#">25</a></td>
+											<td><span>26</span></td>
+											<td><span>27</span></td>
+											<td><span>28</span></td>
+											<td class="pad" colspan="3"><span>&nbsp;</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</section>
+					</div>
+
+					<!-- 반응 형 웹 마지막 -->
+				</body>
+				</html>

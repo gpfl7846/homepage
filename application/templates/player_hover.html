@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+			<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/hover.css')}}">
+
+	</head>
+	<body >
+	{% if player %}
+	<img class="team_logo" src="{{url_for('get_profile_image',filename=player.profile_img)}}" alt="..." class="img-rounded">
+	<div class="color">
+		이름 : {{player.player_name}}<br>
+	포지션 : {{player.position}}<br>
+</div>
+	{% endif %}
+	</body>
+</html>

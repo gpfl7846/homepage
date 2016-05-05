@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/mobile.css')}}">
+<div id="main" class="container">
+
+  <h1 class="col-xs-8 col-xs-offset-3 col-md-3 col-md-offset-9">로그인</h1>
+
+  <form action="{{ url_for('login') }}" class="form-horizontal" role="form" method="POST">
+
+<!--   <div class="form-group">
+    <label for="input-email" class="col-lg-2 control-label" style="color: white">Email</label>
+    <div class="col-lg-10">
+      <input type="email" class="form-control" id="input-email" placeholder="Email" name="email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword1" class="col-lg-2 control-label" style="color: white">Password</label>
+    <div class="col-lg-10">
+      <input type="password" class="form-control" id="input-password" placeholder="Password" name="password">
+    </div>
+  </div>
+-->  
+{% if form %}
+
+
+{{ form.hidden_tag() }}
+
+{% if form.errors %}
+<div class="hidden-xs width_danger col-md-6 col-md-offset-3  alert alert-danger fade in">
+  <a href="#" class="close" data-dismiss="alert">&times;</a>
+  {% for field, errors in form.errors.items() %}
+  <ul>
+    {% for error in errors %}
+    <li class="color_white">
+      {{ error }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+
+</div>
+{% endif %}
+
+{% if login_error %}
+<div class="hidden-xs width_danger col-md-6 col-md-offset-3  alert alert-danger fade in">
+  <a href="#" class="close" data-dismiss="alert">&times;</a>
+  {{ login_error }}
+
+</div>
+{% endif %}
+
+<div  class=" col-md-4 col-md-offset-8">
+  {% for field in form if field.widget.input_type != "hidden" %}
+
+  <div class="col-md-12 form-group{% if field.errors %}has-error{% endif %}">
+    <label for="{{field.id}}" class="label_size col-sm-4 control-label">{{ field.label }}</label>
+    {{  field(class="form-control", placeholder=field.description.placeholder) }}
+
+    {% if field.errors %}
+    <div class="help-block">
+      <ul>
+        {% for error in field.errors %}
+        <li class="color_white">{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+  </div>
+  {% endfor %}    
+  {% endif %}
+ <!-- 반응형 일때
+ --> 
+  <div class="hidden-md hidden-lg  visible-xs-12 form-group">
+    <button type="submit" class="col-xs-11 xs_login_btn_1">Log in</button> 
+  </div>
+  <div class="col-md-12 col-xs-12 form-group">
+    <div class="hidden-lg hidden-md xs_row">
+      <button class="col-xs-4 xs_login_btn" href="{{url_for('signup')}}">Sign Up</button>
+      <button class="col-xs-5 xs_find_pass_btn" href="{{url_for('find_password')}}">비밀번호 찾기</button>  
+    </div>
+  </div>
+
+<!-- pc 버전
+ -->  
+ <div class="hidden-xs hidden-sm hidden-md col-md-12 form-group">
+    <button type="submit" class="login_btn_1">Log in</button> 
+  </div>
+  <div class="hidden-xs hidden-md hidden-sm col-md-12 col-xs-12 form-group">
+    <div class="hidden-xs hidden-md hidden-sm  row">
+      <a class="login_btn" href="{{url_for('signup')}}">Sign Up</a>
+      <a class="find_pass_btn" href="{{url_for('find_password')}}">비밀번호 찾기</a>  
+    </div>
+  </div>
+
+
+</form>
+
+</div>
+
+
+{% endblock %}
+

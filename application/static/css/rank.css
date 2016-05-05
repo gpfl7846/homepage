@@ -1,0 +1,72 @@
+
+.player_title{
+background: #373737;
+font-weight: bold;
+}
+
+.gdlr-league-table tr:nth-child(odd) td {
+background-color: #f3f3f3;
+}
+
+.gdlr-league-table .gdlr-table-pos {
+width: 7%;
+}
+
+.gdlr-league-table tr td {
+border-color: #e1e1e1;
+}
+
+.gdlr-league-table tr td {
+border-bottom: 0px;
+}
+.gdlr-league-table .gdlr-table-team {
+text-align: left;
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.gdlr-league-table .gdlr-table-p {
+width: 5%;
+}
+
+
+.gdlr-league-table .gdlr-table-pos {
+width: 7%;
+}
+
+.gdlr-league-table tr th {
+border-color: #000000;
+}
+
+.gdlr-league-table tr th {
+color: #ffffff;
+}
+
+.gdlr-league-table tr th {
+font-size: 15px;
+font-weight: bold;
+}
+
+.table{
+
+font-weight: bold;
+text-align: center;
+text-transform: uppercase;
+
+}
+
+
+.title_margin{
+margin: 3%;
+}
+.title_margin2{
+margin: 1.5%;	
+}
+.col_4{
+
+	left: 3%;
+top: 3%;
+}
+.col_8{
+	top: 3%;
+}

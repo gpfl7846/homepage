@@ -1,0 +1,224 @@
+.image_position{
+	top: -460px;
+left: 203px;
+}
+.team_font{
+	color: white;
+font-size: 26px;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.round_font{
+	font-size: 18px;
+
+}
+.option_back{
+	background: rgba(61, 70, 79,.8);
+}
+.btn_margin{
+
+	margin: 3%;
+}
+
+.close {
+float: right;
+font-size: 37px;
+font-weight: 700;
+line-height: 1;
+color: black;
+text-shadow: 0 1px 0 #fff;
+filter: alpha(opacity=20);
+opacity: .6;
+}
+
+.btn-primary {
+color: #fff;
+background-color: #aa4243;
+border-color: #aa4243;
+}
+.color_white{
+
+	color:white;
+}
+
+.hour_in{
+	margin-left: 0px;
+}
+
+
+.width{
+margin-right: 1%;
+	width:20%;
+}
+.btn_maign_1{
+	margin-left: 1%;
+margin-bottom: 3%;
+}
+.modal_title{
+	color: white;
+font-size: 26px;
+
+text-shadow: -1px 0 black , 0 1px black , 1px 0 black , 0 -1px black;
+}
+
+.form-horizontal .control-label {
+padding-top: 0px;
+
+}
+.write_result{
+font-size: 20px;
+padding-top: 0px;
+}
+.text_shadow{
+
+	text-shadow: -1px 0 black , 0 1px black , 1px 0 black , 0 -1px black;
+
+}
+.modal-header {
+min-height: 16.43px;
+padding: 15px;
+border-bottom: 1px solid #aa4243;
+}
+.select{
+	margin-left: 1%;
+}
+.btn_position{
+margin-left: 672%;
+}
+.button_style{
+	background: #023f6b;
+	background: -webkit-linear-gradient(top, #196392 0%,#023f6b 100%);
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	padding: 0 20px;
+	border-radius: 10px;
+	list-style: none;
+	position: relative;
+	display: inline-table;
+	border:none;
+	color:white;
+}
+
+.button_style :hover a {
+	color: #fff;
+}
+.button_style a {
+	display: block;
+	padding: 13px;
+	color: white;
+	text-decoration: none;
+}
+
+.input-group-addon {
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	color: white;
+	text-align: center;
+	border-radius: 4px;
+	background: none;
+	border: none;
+}
+.input-group .form-control:last-child{
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.modal-content {
+position: relative;
+background: none;
+}
+
+.modal-footer {
+padding: 0px;
+text-align: right;
+border-top: 1px solid #aa4243;
+}
+
+.round{
+	left: 19%;
+}
+.team{
+	left: 24%;
+}
+.when{
+
+	left: 13%;
+}
+.time_hr_1{
+	left: 13%;
+}
+.time_min{
+	left: 8%;
+}
+
+.form-control {
+color: white;
+background: none;
+
+}
+
+.where{
+
+	left: 24%;
+
+}
+
+.button_size{
+	height: 40px;
+}
+
+.textbox{
+margin-left: 15%;
+	padding-top: 10px;	
+	padding-bottom: 10px;
+
+}
+.team_name{
+
+	margin-left: -1%;
+}
+.input-group .form-control {
+
+ width: 281px;
+
+}
+
+
+.title_size{
+	font-size: 24px;
+}
+
+
+.button_align{
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.hour_input{
+    width: 140px;
+    margin-left: 10px;
+}
+
+.team_name_box {
+margin-left: 31px;
+font-size: 17px;
+}
+
+.minute_input{
+    width: 140px;
+    margin-left: 10px;
+}
+
+.input-group .form-control:not(:first-child):not(:last-child) {
+border-radius: 4px;
+}
+
+.model_background{
+
+	background: rgba(61, 70, 79,.8);
+}
+
+.modal_title_foot{
+
+	background:  rgba(36,43,51,.8);
+}

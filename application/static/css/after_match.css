@@ -1,0 +1,49 @@
+.col-md-3 {
+	width: 27%;
+}
+
+.col-md-6 {
+	width: 45.666667%;
+}
+.upcoming-match-item-wrapper {
+text-align: center;
+position: relative;
+}
+
+.clear {
+display: block;
+clear: both;
+visibility: hidden;
+line-height: 0;
+height: 0;
+zoom: 1;
+}
+.modal_back{
+background:rgba(51,51,51,.7);
+}
+
+.upcoming-match-overlay{
+background-color: #aa4243;
+}
+
+.upcoming-match-item-wrapper .gdlr-upcoming-match-versus {
+font-weight: bold;
+margin: 0px 35px;
+}
+
+
+.upcoming-match-item-wrapper .match-result-info-wrapper {
+display: block;
+padding: 12px 20px;
+position: relative;
+}
+
+.upcoming-match-item-wrapper .upcoming-match-info-overlay {
+position: absolute;
+top: 0px;
+right: 0px;
+bottom: 0px;
+left: 0px;
+opacity: 0.44;
+
+}

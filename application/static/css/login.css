@@ -1,0 +1,181 @@
+
+
+
+.form-horizontal .form-group {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+input:-webkit-autofill{
+	background:transparent;
+	background-image: none;
+	color: white;
+}
+
+.color_white{
+	color:white;
+}
+
+
+
+
+
+	.find_btn{
+		display: inline-block;
+		margin-top: 4%;
+		border: 3px;
+		border-style: solid;
+		border-color: #fff;
+		background-color: #fff;
+		color: #000;
+		padding: 0px 103px;
+		font-weight: bold;
+		margin-left: 1%;
+
+	}
+	.xs_login_btn_1 {
+		display: inline-block;
+		margin-left: 4%;
+		border: 5px;
+		border-style: solid;
+		border-color: #fff;
+		background: none;
+		color: #fff;
+		padding: 0px 73px;
+		font-weight: bold;
+		font-size: 12px;
+	}
+
+	.xs_find_btn {
+		display: inline-block;
+		margin-top: 10%;
+		border: 3px;
+		border-style: solid;
+		border-color: #fff;
+		background-color: #fff;
+		background: none;
+		color: #000;
+		padding: 0px 64px;
+		font-weight: bold;
+		margin-left: 1%;
+	}
+	.xs_find_pass_btn {
+		display: inline-block;
+		margin: 1%;
+		text-align: center;
+		border-width: 3px;
+		border-style: solid;
+		border-color: #fff;
+		background: none;
+		color: #fff;
+		padding: 6px 2px;
+		font-size: 14px;
+
+	}
+	.xs_login_btn {
+		display: inline-block;
+		margin: 1%;
+		border-bottom-width: 3px;
+		border-bottom-style: solid;
+		border-color: #fff;
+		background: white;
+		color: black;
+		font-weight: bold;
+		font-size: 12px;
+		padding: 6px 1px;
+	}
+	.xs_row {
+		margin: -2px 0 0 -6px;
+	}
+	.login_btn_1 {
+		display: inline-block;
+		margin: 1%;
+		border: 5px;
+		border-style: solid;
+		border-color: white;
+		background: none;
+		color: white;
+		padding: 0px 131px;
+		font-weight: bold;
+
+	}
+	.login_btn_1:hover {
+		color: #177B57;
+		background: white;
+	}
+	a.find_pass_btn:hover {
+		color: #177B57;
+		background: white;
+	}
+	a.login_btn:hover {
+		color:#177B57;
+	}
+
+	.row{
+		margin: -2px 0 -0 -1px;
+
+	}
+	.login_btn{
+		display: inline-block;
+		margin: 1%;
+		border-bottom-width: 3px;
+		border-bottom-style: solid;
+		border-color: white;
+		background-color: white;
+		color: black;
+		padding: 7px 51px;
+		font-weight: bold;
+	}
+	.find_pass_btn{
+		display: inline-block;
+		margin: 1%;
+		text-align: center;
+		border-width: 3px;
+		border-style: solid;
+		border-color: white;
+		/* background-color: #aa4243; */
+		color: white;
+		padding: 6px 27px;
+	}
+
+
+	.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+		color: white;
+		background-color: #633034;
+		border-color: #633034;
+	}
+	.btn-default {
+		color: white;
+		background-color: #aa4243;
+		border-color: #aa4243;
+	}
+
+	.width_danger{
+		width:50%;
+	}
+
+
+	.text_title{
+		font-weight: bold;
+		text-align: right;
+	}
+
+	.label_size{
+		font-size: 28px;
+	}
+
+	label {
+		display: inline-block;
+		max-width: 100%;
+		margin-bottom: 5px;
+		font-weight: 100;
+	}
+	.btn_left{
+
+		margin-left: 19%;
+	}
+
+	h1{
+		margin-top: 54px;
+		margin-bottom: 10px;
+	}

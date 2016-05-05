@@ -1,0 +1,157 @@
+
+
+.background_select{
+	background: rgba(51,51,51,.7);
+}
+
+option{
+	background: rgb(36,43,51);
+}
+.color_white{
+	color:white;
+}
+
+form input[type="text"],form input[type="email"], form input[type="password"], form select, form textarea {
+
+width: 70%;
+
+}
+.xs_signup_btn{
+display: inline-block;
+margin-left: 16%;
+border-bottom-width: 3px;
+border-bottom-style: solid;
+border-color: white;
+background-color: white;
+color: black;
+padding: 6px 89px;
+font-weight: bold;
+margin-bottom: 7%;
+}
+
+.signup_btn{
+display: inline-block;
+margin-left: 9%;
+border-bottom-width: 3px;
+border-bottom-style: solid;
+border-color: white;
+background-color: white;
+color: black;
+padding: 6px 89px;
+font-weight: bold;
+margin-bottom: 7%;
+}
+
+.option_back{
+	background: rgb(36,43,51);
+}
+.color_black{
+	color: black;
+}
+.img_file{
+margin-left: auto;
+margin-right: auto;
+width: 17em;
+}
+.img_center{
+
+	display: block;
+margin-left: auto;
+margin-right: auto;
+}
+.signup_font{	
+	color:white;
+}
+
+
+.form-control {
+
+width: 70%;
+margin-left: 18%;
+color:white;
+}
+.font_sign{
+	font-size: 30px;
+}
+.info_title{
+	font-weight: bold;
+text-align: center;
+
+}
+.button_style :hover a {
+	color: #fff;
+}
+.button_style a {
+	display: block;
+	padding: 13px;
+	color: white;
+	text-decoration: none;
+}
+
+.input-group-addon {
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	color: white;
+	text-align: center;
+	border-radius: 4px;
+	background: none;
+	border: none;
+}
+.input-group .form-control:last-child{
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+/*select[name=selectTeam]{
+	margin-left:12%;	
+}*/
+/*select[name=role]{
+	margin-left:7%;		
+}*/
+/*
+select[name=selectPosition]{
+	margin-left:12%;		
+}*/
+.button_size{
+	height: 40px;
+	background: #aa4243;
+}
+
+.textbox{
+
+	padding-top: 10px;	
+	padding-bottom: 10px;
+
+}
+
+.input-group .form-control {
+
+ width: 281px;
+
+}
+
+.title_size{
+	font-size: 24px;
+}
+
+
+.button_align{
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.hour_input{
+    width: 140px;
+    margin-left: 10px;
+}
+
+.minute_input{
+    width: 140px;
+    margin-left: 10px;
+}
+
+.input-group .form-control:not(:first-child):not(:last-child) {
+border-radius: 4px;
+}

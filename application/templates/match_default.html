@@ -1,0 +1,293 @@
+{% extends 'layout.html' %}
+{% block body %}
+<script type="text/javascript" src="{{url_for('static', filename ='js/round_tab.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename ='js/jquery-ui-1.7.custom.min.js')}}"></script>
+
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/match_tabcss.css')}}">
+
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/match_default.css')}}">
+<!-- 1-9 링크  -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400" />
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style_onetonine.css')}}">
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/jquery.sectionmenu.css')}}">
+<script type="text/javascript" src="{{url_for('static', filename ='js/jquery.easing.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename ='js/jquery.fragmentscroll.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename ='js/jquery.jquery.sectionmenu.min.js')}}"></script>
+
+
+
+<script type="text/javascript">
+
+		$(window).load(function() {
+			$('body').sectionMenu().fragmentScroll();
+		});
+
+		</script>
+
+<div class="container">
+	<ul class=" tabpadding nav-tabs hidden-xs " role="tablist" id="myTab">
+		
+		<li class="active"><a  class="match_pDD" href="{{ url_for('match_default') }}">HOME</a></li>
+		<li><a  class="match_pDD" href="{{ url_for('match_default',round=1) }}">1R</a></li>
+		<li><a   class="match_pDD" href="{{ url_for('match_default',round=2) }}">2R</a></li>
+		<li><a   class="match_pDD" href="{{ url_for('match_default',round=3) }}">3R</a></li>
+		<li><a  class="match_pDD" href="{{ url_for('match_default',round=4) }}">4R</a></li>
+		<li><a  class="match_pDD" href="{{ url_for('match_default',round=5) }}">5R</a></li>
+		<li><a  class="match_pDD" href="{{ url_for('match_default',round=6) }}">6R</a></li>
+		<li><a  class="match_pDD" href="{{ url_for('match_default',round=7) }}">7R</a></li>
+		<li><a  class="match_pDD" href="{{ url_for('match_default',round=8) }}">8R</a></li>
+		<li><a  class="match_pDD" href="{{ url_for('match_default',round=9) }}">9R</a></li>
+
+
+	</ul>
+
+
+	<div class=" col-xs-1 col-xs-offset-5 dropdown hidden-md hidden-sm visible-xs">
+		<button class="glyphicon glyphicon-sort-by-order btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			<li role="presentation" ><a role="menuitem" tabindex="-1" href="{{ url_for('match_default') }}">Home</a></li>
+			<li role="presentation"><a href="{{ url_for('match_default',round=1) }}" role="menuitem" tabindex="-1">1</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('match_default',round=2) }}" >2</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('match_default',round=3) }}" >3</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('match_default',round=4) }}" >4</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('match_default',round=5) }}" >5</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('match_default',round=6) }}" >6</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('match_default',round=7) }}" >7</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('match_default',round=8) }}" >8</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url_for('match_default',round=9) }}" >9</a></li>
+
+		</ul>
+	</div>
+
+
+
+	<div class=" col-xs-12 container tab-content bodrder_style">
+
+		<div class=" col-xs-12 col-md-6 left_table"> 
+			{% if check=="true" %}
+			{% if now_round %}
+			{% endif %}
+			<div class="gdlr-item-title-wrapper gdlr-item pos-left ">
+				<div class="gdlr-item-title-head">
+					<h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">현재 라운드({{now_round}}R)</h3>
+					<div class="clear"></div>
+				</div>
+			</div>			
+
+			
+			<table class="col-xs-12  TFtable table">
+				<tbody>
+					
+					{% for match in home %}
+
+					<tr class="" onclick="document.location='{{url_for('where_to_go',match_pk=match.match_result[0].match_pk)}}'">
+						<td> {{match.date}}</td>
+						<td class="left_align">
+							
+							<div class="gdlr-result-match-team gdlr-left display">	
+								{{match.match_result[0].name}}
+							</div>
+
+
+						</td>
+						<td>
+							<div class="gdlr-result-match-score display">
+								{% if match.match_result[0].goal!=None %}
+								{{match.match_result[0].goal}}
+								{% endif %}
+							</div> 	
+						</td>
+						<td>	<div class="gdlr-result-match-separator display">vs</div></td>
+						<td>
+							<div class="gdlr-result-match-score display">
+
+								{% if match.match_result[1].goal!=None %}
+								{{match.match_result[1].goal}}
+								{% endif %}
+							</div>
+						</td>
+						<td>
+							<div class="gdlr-result-match-team gdlr-right display pull_left"> 
+								{{match.match_result[1].name}}
+							</div>
+						</td>
+
+					</tr>
+					{% endfor %}
+
+					<!-- erase here -->
+					<!-- to here -->
+				</tbody>
+			</table>
+			{% endif %}
+		</div>
+		<div class="col-md-6 col-xs-12 ">
+
+			{% if message=="true" %}
+
+			{% if now_next_round %}
+			<div class="col-xs-12  gdlr-item-title-wrapper gdlr-item pos-left ">
+				<div class="gdlr-item-title-head">
+					<h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">
+						# 다음 라운드({{now_next_round}}R)
+					</h3>
+
+					<div class="clear"></div>
+				</div>
+			</div>		
+			{% endif %}
+		</tr>
+	</thead>
+	<table class="col-xs-12  TFtable table">
+
+		<tbody>
+
+			{% for match in home_next %}
+
+			<tr onclick="document.location='{{url_for('where_to_go',match_pk=match.match_result[0].match_pk)}}';">
+				<td> {{match.date}}</td>
+				<td class="left_align">
+					
+					<div class="gdlr-result-match-team gdlr-left display">
+
+						{{match.match_result[0].name}}
+					</div>
+
+				</td>
+				<td>
+					<div class="gdlr-result-match-score display">
+						{% if match.match_result[0].goal!=None %}
+						{{match.match_result[0].goal}}
+						{% endif %}
+					</div> 
+				</td>
+				<td><div class="gdlr-result-match-separator display">vs</div></td>
+				<td>
+					<div class="gdlr-result-match-separator display">
+						{% if match.match_result[1].goal!=None %}
+						{{match.match_result[1].goal}}
+						{% endif %}
+					</div>
+				</td>
+				<td>
+
+					<div class="gdlr-result-match-team gdlr-right display pull_left"> 
+
+
+						{{match.match_result[1].name}}
+					</div>
+				</td>
+			</tr>
+			{% endfor %}
+
+		</tbody>
+	</table>
+	{% endif %}
+</div>
+
+
+
+
+<!-- copy end-->
+
+<div class="col-xs-12  left_table col-md-6"> 
+	{% if r %}
+	<div class="gdlr-item-title-wrapper gdlr-item pos-left ">
+		<div class="gdlr-item-title-head">
+			<h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">#현재 라운드</h3>
+			<div class="clear"></div>
+		</div>
+	</div>			
+
+
+	<table class="col-xs-12  TFtable table">
+
+		<tbody>
+			{% for m in r.matches %}
+
+			<tr  onclick="document.location='{{url_for('where_to_go',match_pk=m.pk)}}';">
+				<td>{{m.date}}</td>
+				<td class="left_align">
+					
+					<div class="gdlr-result-match-team gdlr-left display">	
+						{{m.match_teams[0].team.name}}
+					</div>
+
+
+				</td> 
+
+				<td>
+					<div class="gdlr-result-match-score display">
+
+						{% if m.match_teams[0].team_goal!=None %}{{m.match_teams[0].team_goal}}{% endif %}
+					</div>
+				</td>
+
+				<td><div class="gdlr-result-match-separator display"> vs
+				</div> </td>
+
+				<td>
+					<div class="gdlr-result-match-score display">
+
+						{% if m.match_teams[1].team_goal!=None %}{{m.match_teams[1].team_goal}}{% endif %}
+					</div></td> 
+
+					<td>
+
+						<div class="gdlr-result-match-team gdlr-right display pull_left"> 
+
+							{{m.match_teams[1].team.name}}
+						</div></td>
+					</tr>
+					{% endfor %}
+
+				</tbody>
+			</table>
+
+		</div>
+
+		<div class="col-xs-12  col-md-6">
+			<div class="gdlr-item-title-wrapper gdlr-item pos-left ">
+				<div class="gdlr-item-title-head">
+					<h3 class="gdlr-item-title gdlr-skin-title gdlr-skin-border">REVIEW</h3>
+					<div class="clear"></div>
+				</div>
+			</div>			
+
+
+			<table class="col-xs-12  TFtable table">
+
+				<tbody>
+					{% for review in reviews %}
+					<tr>
+						<td>{{review.created_time}}</td>
+
+						<td>
+
+							<div class="gdlr-result-match-team gdlr-left display">	
+								{{review.body}}
+							</div>
+						</td>
+						<td>
+							<div class="gdlr-result-match-team gdlr-right display pull_left"> 
+								{{review.user.player_name}}
+							</div></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{% endif %}
+
+			</div>
+		</div>	
+		<!-- copy-->
+
+
+
+
+	</div>
+	{% endblock%}

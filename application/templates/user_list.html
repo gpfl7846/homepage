@@ -1,0 +1,3 @@
+{% for user in users %}
+	<a href="{{ url_for('emulate',user_pk=user.pk) }}">{{ user.player_name }}</a>
+{% endfor %}

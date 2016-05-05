@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/find_user.js') }}"></script>
+<form action="{{ url_for('find') }}" method="post">
+
+	{% if error %}{{error}}{% endif %}
+  	<input class="form-control pull-right" type='text' name='find_user'>
+
+</form>
+
+<div id="users">
+
+</div>
+	<a href="{{ url_for('back_to_original_session') }}">원래세션으로 되돌리기</a>
+{% endblock %}

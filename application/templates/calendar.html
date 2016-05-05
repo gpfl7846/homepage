@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<!--css/js -->
+
+
+<script type="text/javascript" src="{{url_for('static', filename ='js/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename ='js/fullcalendar.js')}}"></script>
+
+<link type="text/css" rel="stylesheet" media='print' href="{{url_for('static', filename='css/fullcalendar.print.css')}}">
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/fullcalendar.css')}}">
+
+<script type="text/javascript" src="{{url_for('static', filename ='js/calendar.js')}}"></script>
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/calendarcss.css')}}">
+
+	<div id='calendar'></div>
+
+
+{% endblock %}

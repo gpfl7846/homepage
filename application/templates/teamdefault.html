@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/layoutcss.css')}}">
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/team_defaultcss.css')}}">
+<div class="contaniner">
+<div class="hidden-xs container row">
+
+	{% for item in league2list %}
+	<div class="col-xs-6 col-md-3">
+		<a href="{{ url_for('teampage', team_pk=item.pk) }}">
+
+					<div class="team_box thumbnail col-md-4">
+						<img  class="team_img" data-src="holder.js/100%x200" alt="100%x200" src="{{url_for('get_teamlogo_image',filename=item.team_img)}}" />
+						<div class="caption text_style">
+							<h5>{{item.name}}</h5>
+							<p> {{item.college}}</p>
+						</div>
+					</div>
+
+		</a>
+	</div>
+	{% endfor %}
+
+</div>
+<div class="visible-xs-12 hidden-md hidden-lg row">
+
+	{% for item in league2list %}
+	<div class="col-xs-6 col-md-3">
+		<a href="{{ url_for('teampage', team_pk=item.pk) }}">
+
+					<div class="team_box_xs thumbnail col-md-4">
+						<img  class="team_img" data-src="holder.js/100%x200" alt="100%x200" src="{{url_for('get_teamlogo_image',filename=item.team_img)}}" />
+						<div class="caption text_style">
+							<p class="font_size_name">{{item.name}}</p>
+							<p> {{item.college}}</p>
+						</div>
+					</div>
+
+		</a>
+	</div>
+	{% endfor %}
+
+</div>
+
+
+</div>
+{% endblock %}

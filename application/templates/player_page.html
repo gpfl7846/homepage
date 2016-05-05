@@ -1,0 +1,338 @@
+{% extends 'layout.html' %}
+{% block body %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/player.css')}}">
+
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/match_default.css')}}">
+
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/match.css')}}">
+<script>
+$(function () {
+  $('#myTab a:last').tab('show')
+})
+</script>
+
+
+
+<div class="col-md-3">
+  <img  class="img_size"src="../static/res/img/kang.png" alt="..." class="img-rounded">
+</div>
+<!-- player name -->
+<div class="col-md-6 div_size1">
+  <div class="player_name">
+    강현욱(첼시)
+  </div>
+</div>
+
+
+
+
+<div class="col-md-12">
+  <ul class="nav nav-tabs" role="tablist" id="myTab">
+    <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+    <li><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+</div>
+
+
+
+<div class="tab-content"> <!-- start of tab content -->
+  <div class="tab-pane active" id="home">
+    <div class="wrapper">
+
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="column col-md-12" id="main">
+
+          <div class="padding">
+            <div class="full col-sm-9"> 
+              <div class="row">
+
+               <!-- main col left --> 
+               <div class="col-sm-5">
+                <div class="panel panel-default panel_body"> <!-- start of panel_1 -->
+
+                  <div class="panel-thumbnail"><img src="" class="img-responsive"></div>
+                  <div class="panel-body panel_body"><!--  start of panel body_1 -->
+                    <p class="lead">Urbanization</p>
+                    <p>45 Followers, 13 Posts</p>
+
+                    <p>
+                      <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
+                    </p>
+                  </div> <!-- end of panel_1 body -->
+
+                </div> <!-- end of panel_1   -->
+                <div class="panel panel-default">
+                  <div class="panel-heading panel-heading"><a href="#" class="pull-right">View all</a> <h4>정보</h4></div>
+                  <div class="panel-body panel_body">
+                    <div class="list-group">
+                      <table class="table table_list">
+
+
+                        <tbody>
+                          <tr>
+                            <td>포지션</td>
+                            <td>MF</td>
+
+                          </tr>
+                          <tr>
+                            <td>소속대학</td>
+                            <td>사범대학</td>
+
+                          </tr>
+                          <tr>
+                            <td>소속학과</td>
+                            <td>사회교육</td>
+
+                          </tr>
+                          <tr>
+                            <td>학번 </td>
+                            <td>2011-12710</td>
+
+                          </tr>
+                          <tr>
+                            <td>생년월일</td>
+                            <td>91/12/05</td>
+
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>  <!-- end of panel_2 -->
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading panel_haeding">
+                    <h4>능력</h4></div>
+                    <div class="panel-body panel_body">
+                     <table class="table table_list">
+                      <thead>
+                        <tr>
+
+                          <th class="th_style" >능력치</th>
+
+                        </tr>
+                      </thead>
+                      
+                      <tbody>
+                        <tr>
+                          <td class="td_size">슈팅</td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Complete</span>
+                              </div>
+                            </div>
+                          </td>
+
+                        </tr>
+                        <tr>
+                          <td class="td_size">패스</td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Complete</span>
+                              </div>
+                            </div>
+
+                          </td>
+
+                        </tr>
+                        <tr>
+                          <td class="td_size">드리블</td>
+                          <td> 
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Complete</span>
+                              </div>
+                            </div>
+                          </td>
+
+                        </tr>
+                        <tr>
+                          <td class="td_size">크로스</td>
+                          <td> 
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Complete</span>
+                              </div>
+                            </div>
+                          </td>
+
+                        </tr>
+                        <tr>
+                          <td class="td_size" >체력</td>
+                          <td> 
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Complete</span>
+                              </div>
+                            </div>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div> <!-- end of panel_5 -->
+
+
+
+                <div class="panel panel-default">
+                 <div class="panel-heading panel-heading"><a href="#" class="pull-right">View all</a> 
+                  <h4>사진</h4></div>
+                  <div class="panel-body panel_body panel_body">
+
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+
+
+
+                  </div>
+                </div> <!-- end of panel_4 -->
+
+
+
+
+
+                <div class="panel panel-default">
+                 <div class="panel-heading panel-heading "><a href="#" class="pull-right">View all</a> 
+                  <h4>친구</h4></div>
+                  <div class="panel-body panel_body">
+
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    <img  class="sm_img_size"src="#" alt="..." class="img-rounded">
+                    
+
+
+                  </div>
+                </div> <!-- end of panel_4 -->
+                <div class="panel panel-default">
+                 <div class="panel-heading panel-heading"><a href="#" class="pull-right">View all</a> <h4>More Templates</h4></div>
+                 <div class="panel-body panel_body">
+                  <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Free @Bootply</a>
+                  <div class="clearfix"></div>
+                  There a load of new free Bootstrap 3 ready templates at Bootply. All of these templates are free and don't require extensive customization to the Bootstrap baseline.
+                  <hr>
+                  <ul class="list-unstyled"><li><a href="http://www.bootply.com/templates">Dashboard</a></li><li><a href="http://www.bootply.com/templates">Darkside</a></li><li><a href="http://www.bootply.com/templates">Greenfield</a></li></ul>
+                </div>
+              </div> <!-- end of panel_4 -->
+
+            </div> <!-- end of the col-sm-5 main col left -->
+
+
+            <!-- main col right -->
+            <div class="col-sm-7">
+
+             <div class="well">  <!-- right panel_1 -->
+               <form class="form">
+
+                <div class="form-group">
+                  <textarea class="form-control" placeholder="지금 무슨 생각을 하고 계신가요?"></textarea>
+                </div>
+                <button class="btn btn-primary pull-right" type="button">Post</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+
+              </form>
+            </div>
+            <div class="panel panel-default">  <!-- start 1 -->
+             <div class="panel-heading panel-heading"><a href="#" class="pull-right">View all</a> <h4>Stackoverflow</h4></div>
+             <div class="panel-body panel_body">
+              <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Keyword: Bootstrap</a>
+              <div class="clearfix"></div>
+                <p> 좋아요 댓글달기 공유하기</p>
+                <hr>
+
+                <p>류재희,한영후 님이 강현욱님의 글을 좋아합니다.</p>
+              <hr>
+              <form>
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">                  </div>
+                    <input type="text" class="form-control" placeholder="Add a comment..">
+                  </div>
+                </form>
+
+              </div>
+            </div> <!-- end 1 -->
+
+
+            <div class="panel panel-default">
+             <div class="panel-heading panel-heading">
+
+              <img src="../static/res/img/kang.png" class="sm_pic"/>
+
+              강현욱</div>
+              <div class="panel-thumbnail"><img src="../static/res/img/slide-1.jpg" class="img-responsive"></div>
+              <div class="panel-body">
+                <p class="lead">Social Good</p>
+                <p>1,200 Followers, 83 Posts</p>
+
+                <p>
+                  <img src="https://lh6.googleusercontent.com/-5cTTMHjjnzs/AAAAAAAAAAI/AAAAAAAAAFk/vgza68M4p2s/s28-c-k-no/photo.jpg" width="28px" height="28px">
+                  <img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
+                  <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
+                </p>
+              </div>
+            </div>
+
+
+            <div class="panel panel-default">
+             <div class="panel-heading panel-heading"><a href="#" class="pull-right">View all</a> <h4>More Templates</h4></div>
+             <div class="panel-body panel_body">
+              <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Free @Bootply</a>
+              <div class="clearfix"></div>
+              There a load of new free Bootstrap 3 ready templates at Bootply. All of these templates are free and don't require extensive customization to the Bootstrap baseline.
+              <hr>
+              <ul class="list-unstyled"><li><a href="http://www.bootply.com/templates">Dashboard</a></li><li><a href="http://www.bootply.com/templates">Darkside</a></li><li><a href="http://www.bootply.com/templates">Greenfield</a></li></ul>
+            </div>
+          </div> <!-- end of panel_4 -->
+        </div> <!-- end of col- sm -7 -->
+
+
+      </div>  <!-- end of the row -->
+
+    </div> <!-- end of col-sm-9 -->
+
+  </div>  <!-- end of padding --> 
+
+
+
+
+</div> <!-- end of md 12  -->    
+</div> <!-- end of row row-offcanvas --> 
+
+
+</div> 
+
+</div> <!-- end of tab-pane  -->
+
+<div class="tab-pane" id="profile">...</div> 
+<div class="tab-pane" id="messages">...</div>
+<div class="tab-pane" id="settings">...</div>
+</div> <!-- end of tab-cntent -->
+
+
+
+
+
+{% endblock%}

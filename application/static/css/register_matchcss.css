@@ -1,0 +1,10 @@
+@font-face {
+	font-family: NEXONL;
+	src: url('../font/HelveticaNeueOTS.otf');
+}
+
+
+.page_font{
+	font-family: NEXONL;
+	color:white;
+}

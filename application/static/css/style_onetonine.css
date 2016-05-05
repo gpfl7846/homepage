@@ -1,0 +1,31 @@
+
+
+.atag
+{
+	transition: all 0.3s ease;
+	color: rgb(22, 189, 222);
+	text-decoration: none;
+}
+
+.atag:hover
+{
+	color: rgb(59, 77, 86);
+}
+
+.ultag
+{
+	list-style-type: square;
+}
+
+#page section
+{
+	padding-top: 100px;
+	padding-bottom: 400px;
+	font-size: 20px;
+	text-align: center;
+}
+
+#page p
+{
+	line-height: 30px;
+}

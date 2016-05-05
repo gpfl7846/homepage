@@ -1,0 +1,22 @@
+.color{
+background-color:rgba(51,51,51,.7);
+color:white;
+}
+
+.popover {
+
+background-color: rgba(51,51,51,.7);
+
+}
+
+.popover-title {
+color:white;
+background-color: #242b33;
+
+}
+
+.popover.right>.arrow:after {
+
+border-right-color: rgba(51,51,51,.7);
+
+}
